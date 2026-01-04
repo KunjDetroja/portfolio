@@ -12,7 +12,7 @@ import { ViewTransitions } from 'next-view-transitions';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { Toaster } from '@/components/ui/sonner';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = getMetadata('/');
 
