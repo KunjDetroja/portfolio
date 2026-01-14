@@ -32,15 +32,15 @@ export default function Hero() {
                         Hi, I&apos;m Kunj — <span className="text-secondary">A Full Stack Developer.</span>
                     </h1>
 
-                    <div className="mt-4 items-center flex flex-wrap break-all gap-x-1.5 gap-y-2.5 text-base md:text-lg text-neutral-500">
-                        <span>I build scalable web apps using {' '}</span>
+                    <p className="mt-4 text-base md:text-lg text-neutral-500 leading-[38px]">
+                        I build scalable web apps using{' '}
                         {skillTags.map((skill, index) => {
                             const isLast = index === skillTags.length - 1;
                             const isFirst = index === 0;
                             return (
                                 <React.Fragment key={skill.name}>
-                                    {!isFirst && !isLast && <span>{' '},{' '}</span>}
-                                    {isLast && <span>{' '}and{' '}</span>}
+                                    {!isFirst && !isLast && <> , </>}
+                                    {isLast && <> and </>}
                                     <Skill
                                         name={skill.name}
                                         href={skill.href}
@@ -50,12 +50,12 @@ export default function Hero() {
                                 </React.Fragment>
                             )
                         })}
-                        <span>. With a focus on</span>
-                        <span className="font-semibold text-foreground"> fintech</span>,
-                        <span className="font-semibold text-foreground"> HRMS</span>, and
-                        <span className="font-semibold text-foreground"> AI</span>
-                        <span> domains, driven by clean code and great UX.</span>
-                    </div>
+                        {' '}. With a focus on{' '}
+                        <span className="font-semibold text-foreground">fintech</span>,{' '}
+                        <span className="font-semibold text-foreground">HRMS</span>, and{' '}
+                        <span className="font-semibold text-foreground">AI</span>
+                        {' '}domains, driven by clean code and great UX.
+                    </p>
                 </div>
             </AnimatedSection>
 
