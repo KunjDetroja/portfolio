@@ -613,6 +613,114 @@ export const projects: Project[] = [
   },
 
   {
+    title: "Runner Spikes",
+    description:
+      "India's premier e-commerce platform for track & field spikes, running shoes, and athletic gear with Razorpay payments.",
+    image: "/project/runnerspikes.png",
+    link: 'https://www.runnerspikes.in',
+    technologies: [
+      { name: "React", icon: <ReactIcon />, href: "https://react.dev/" },
+      { name: "Node.js", icon: <NodeJs />, href: "https://nodejs.org/" },
+      {
+        name: "Express.js",
+        icon: <ExpressJs />,
+        href: "https://expressjs.com/",
+      },
+      { name: "MongoDB", icon: <MongoDB />, href: "https://www.mongodb.com/" },
+      {
+        name: "TypeScript",
+        icon: <TypeScript />,
+        href: "https://typescriptlang.org/",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: <TailwindCss />,
+        href: "https://tailwindcss.com/",
+      },
+      { name: "AWS", icon: <AWS />, href: "https://aws.amazon.com/" },
+    ],
+    live: 'https://www.runnerspikes.in',
+    details: true,
+    projectDetailsPageSlug: "/projects/runner-spikes",
+    isWorking: true,
+    role: "Full Stack Developer",
+    status: "completed",
+    featured: true,
+    challenges: [
+      "Building a scalable product variant system with size-color dependencies",
+      "Implementing secure Razorpay payment integration with order verification",
+      "Creating responsive mobile-first UI with swipeable product galleries",
+      "Managing complex filter state with URL synchronization for shareable product searches",
+      "Optimizing image delivery with Cloudinary and AWS S3 integration",
+    ],
+    learnings: [
+      "Deep understanding of e-commerce payment flows and order lifecycle management",
+      "Building role-based access control for admin dashboards",
+      "Implementing infinite scroll with intersection observers",
+      "Managing complex Redux state with RTK Query caching strategies",
+      "SEO optimization with dynamic Open Graph meta tags for product sharing",
+    ],
+    isPublished: true,
+    content: [
+      { type: "heading", level: 2, text: "Overview" },
+      {
+        type: "paragraph",
+        text: "Runner Spikes is a **full-featured e-commerce platform** built specifically for India's track and field athletes. The platform provides World Athletics approved spikes, running shoes, and competition-ready athletic gear.",
+      },
+      {
+        type: "highlight",
+        variant: "info",
+        text: "This project delivers a complete shopping experience with advanced filtering, cart management, secure Razorpay payments, and order tracking.",
+      },
+      { type: "heading", level: 2, text: "Key Features" },
+      {
+        type: "features",
+        items: [
+          {
+            title: "Product Filtering",
+            description:
+              "Browse products by category, brand, tags, size, color, and price range with real-time filtering",
+          },
+          {
+            title: "Size Charts",
+            description:
+              "Brand-specific size charts for Nike, Adidas, Puma, and General sizing",
+          },
+          {
+            title: "Secure Payments",
+            description:
+              "Complete purchases securely through Razorpay payment gateway",
+          },
+          {
+            title: "Order Tracking",
+            description:
+              "Track orders and view order history with delivery status updates",
+          },
+          {
+            title: "Admin Dashboard",
+            description:
+              "Manage products, categories, brands, orders, users, coupons, and reviews",
+          },
+        ],
+      },
+      { type: "heading", level: 2, text: "Technical Implementation" },
+      {
+        type: "paragraph",
+        text: "Built with **React 19 + Vite** for fast frontend development. **Redux Toolkit with RTK Query** handles state management and API caching. Backend uses **Express 5 + MongoDB** for a scalable REST API.",
+      },
+      {
+        type: "list",
+        items: [
+          "**Razorpay** for secure Indian payment processing",
+          "**Cloudinary + AWS S3** for optimized image storage and delivery",
+          "**Twilio** for OTP-based phone authentication",
+          "**JWT + Helmet** for authentication and API security",
+        ],
+      },
+    ],
+  },
+
+  {
     title: "DineFlow",
     description:
       "A comprehensive restaurant management platform with multi-tenant architecture, featuring interactive floor plan design, drag-and-drop menu builder, and role-based access control for restaurant chains.",
@@ -735,8 +843,8 @@ export const projects: Project[] = [
     description:
       "An internal management platform to organize departments, teams, projects, tasks, and employee grievances with real-time collaboration.",
     image: "/project/Organization_Management_System.png",
-    github:
-      "https://github.com/Arth-02/Organizational-Grievance-Support-System",
+    // github:
+    //   "https://github.com/Arth-02/Organizational-Grievance-Support-System",
     technologies: [
       { name: "React", icon: <ReactIcon />, href: "https://react.dev/" },
       { name: "shadcn/ui", icon: <Shadcn />, href: "https://ui.shadcn.com/" },
@@ -750,7 +858,7 @@ export const projects: Project[] = [
       { name: "Socket.io", icon: <SocketIo />, href: "https://socket.io/" },
       { name: "Github", icon: <Github />, href: "https://github.com/" },
     ],
-    // live: "#",
+    live: "https://org-x.vercel.app",
     details: true,
     projectDetailsPageSlug: "/projects/organization-management-system",
     isWorking: false,
@@ -823,114 +931,6 @@ export const projects: Project[] = [
           "Real-time event broadcasting using **Socket.io rooms**",
           "MongoDB with Mongoose for **schema validation** and indexing",
           "JWT-based authentication with **role-based access control**",
-        ],
-      },
-    ],
-  },
-
-  {
-    title: "Runner Spikes",
-    description:
-      "India's premier e-commerce platform for track & field spikes, running shoes, and athletic gear with Razorpay payments.",
-    image: "/project/runnerspikes.png",
-    link: 'https://www.runnerspikes.in',
-    technologies: [
-      { name: "React", icon: <ReactIcon />, href: "https://react.dev/" },
-      { name: "Node.js", icon: <NodeJs />, href: "https://nodejs.org/" },
-      {
-        name: "Express.js",
-        icon: <ExpressJs />,
-        href: "https://expressjs.com/",
-      },
-      { name: "MongoDB", icon: <MongoDB />, href: "https://www.mongodb.com/" },
-      {
-        name: "TypeScript",
-        icon: <TypeScript />,
-        href: "https://typescriptlang.org/",
-      },
-      {
-        name: "Tailwind CSS",
-        icon: <TailwindCss />,
-        href: "https://tailwindcss.com/",
-      },
-      { name: "AWS", icon: <AWS />, href: "https://aws.amazon.com/" },
-    ],
-    live: 'https://www.runnerspikes.in',
-    details: true,
-    projectDetailsPageSlug: "/projects/runner-spikes",
-    isWorking: true,
-    role: "Full Stack Developer",
-    status: "completed",
-    featured: true,
-    challenges: [
-      "Building a scalable product variant system with size-color dependencies",
-      "Implementing secure Razorpay payment integration with order verification",
-      "Creating responsive mobile-first UI with swipeable product galleries",
-      "Managing complex filter state with URL synchronization for shareable product searches",
-      "Optimizing image delivery with Cloudinary and AWS S3 integration",
-    ],
-    learnings: [
-      "Deep understanding of e-commerce payment flows and order lifecycle management",
-      "Building role-based access control for admin dashboards",
-      "Implementing infinite scroll with intersection observers",
-      "Managing complex Redux state with RTK Query caching strategies",
-      "SEO optimization with dynamic Open Graph meta tags for product sharing",
-    ],
-    isPublished: true,
-    content: [
-      { type: "heading", level: 2, text: "Overview" },
-      {
-        type: "paragraph",
-        text: "Runner Spikes is a **full-featured e-commerce platform** built specifically for India's track and field athletes. The platform provides World Athletics approved spikes, running shoes, and competition-ready athletic gear.",
-      },
-      {
-        type: "highlight",
-        variant: "info",
-        text: "This project delivers a complete shopping experience with advanced filtering, cart management, secure Razorpay payments, and order tracking.",
-      },
-      { type: "heading", level: 2, text: "Key Features" },
-      {
-        type: "features",
-        items: [
-          {
-            title: "Product Filtering",
-            description:
-              "Browse products by category, brand, tags, size, color, and price range with real-time filtering",
-          },
-          {
-            title: "Size Charts",
-            description:
-              "Brand-specific size charts for Nike, Adidas, Puma, and General sizing",
-          },
-          {
-            title: "Secure Payments",
-            description:
-              "Complete purchases securely through Razorpay payment gateway",
-          },
-          {
-            title: "Order Tracking",
-            description:
-              "Track orders and view order history with delivery status updates",
-          },
-          {
-            title: "Admin Dashboard",
-            description:
-              "Manage products, categories, brands, orders, users, coupons, and reviews",
-          },
-        ],
-      },
-      { type: "heading", level: 2, text: "Technical Implementation" },
-      {
-        type: "paragraph",
-        text: "Built with **React 19 + Vite** for fast frontend development. **Redux Toolkit with RTK Query** handles state management and API caching. Backend uses **Express 5 + MongoDB** for a scalable REST API.",
-      },
-      {
-        type: "list",
-        items: [
-          "**Razorpay** for secure Indian payment processing",
-          "**Cloudinary + AWS S3** for optimized image storage and delivery",
-          "**Twilio** for OTP-based phone authentication",
-          "**JWT + Helmet** for authentication and API security",
         ],
       },
     ],
