@@ -858,6 +858,7 @@ export const projects: Project[] = [
       { name: "Socket.io", icon: <SocketIo />, href: "https://socket.io/" },
       { name: "Github", icon: <Github />, href: "https://github.com/" },
     ],
+    link: "https://org-x.vercel.app",
     live: "https://org-x.vercel.app",
     details: true,
     projectDetailsPageSlug: "/projects/organization-management-system",
