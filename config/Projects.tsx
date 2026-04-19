@@ -26,19 +26,135 @@ import Zod from "@/components/technologies/Zod";
 import { Project } from "@/types/project";
 
 export const projects: Project[] = [
+  // {
+  //   title: "Total Liquor",
+  //   description:
+  //     "A comprehensive multi-platform liquor e-commerce ecosystem featuring a web storefront, admin dashboard, store management portal, and React Native mobile app with Stripe Connect payment processing for multi-vendor marketplace functionality.",
+  //   image: "/project/total-liquor.png",
+  //   // link: 'https://github.com/yourusername/total-liquor',
+  //   technologies: [
+  //     { name: "React", icon: <ReactIcon />, href: "https://react.dev" },
+  //     {
+  //       name: "React Native",
+  //       icon: <ReactIcon />,
+  //       href: "https://reactnative.dev",
+  //     },
+  //     { name: "Node.js", icon: <NodeJs />, href: "https://nodejs.org" },
+  //     {
+  //       name: "Express.js",
+  //       icon: <ExpressJs />,
+  //       href: "https://expressjs.com",
+  //     },
+  //     {
+  //       name: "PostgreSQL",
+  //       icon: <PostgreSQL />,
+  //       href: "https://postgresql.org",
+  //     },
+  //     { name: "Sequelize", icon: <Sequelize />, href: "https://sequelize.org" },
+  //     {
+  //       name: "Redux Toolkit",
+  //       icon: <Redux />,
+  //       href: "https://redux-toolkit.js.org",
+  //     },
+  //     {
+  //       name: "Tailwind CSS",
+  //       icon: <TailwindCss />,
+  //       href: "https://tailwindcss.com",
+  //     },
+  //     { name: "Stripe", icon: <Stripe />, href: "https://stripe.com" },
+  //     { name: "Vite", icon: <Vite />, href: "https://vitejs.dev" },
+  //     { name: "Radix UI", icon: <RadixUI />, href: "https://radix-ui.com" },
+  //     { name: "Zod", icon: <Zod />, href: "https://zod.dev" },
+  //   ],
+  //   // live: 'https://total-liquor.netlify.app',
+  //   details: true,
+  //   projectDetailsPageSlug: "/projects/total-liquor",
+  //   isWorking: false,
+  //   role: "Full Stack Developer",
+  //   status: "in-progress",
+  //   featured: true,
+  //   challenges: [
+  //     "Implementing Stripe Connect for multi-vendor marketplace with split payments and 10% platform fee calculation",
+  //     "Building a bulk product import system that parses Excel files, validates data, and creates hierarchical relationships (Categories → Brands → Products → Variants)",
+  //     "Designing a role-based access control system with separate authentication flows for customers, store owners, and administrators",
+  //     "Managing complex order state machine with multiple statuses (Pending → Preparing → Ready → Delivered) across different user roles",
+  //     "Synchronizing inventory management across multiple stores with real-time stock tracking and variant-level pricing",
+  //   ],
+  //   learnings: [
+  //     "Mastered Stripe Connect Express accounts for marketplace payment splitting and vendor onboarding flows",
+  //     "Gained expertise in building scalable multi-tenant architectures with Sequelize ORM and PostgreSQL",
+  //     "Learned to implement complex form validation using Zod schemas with React Hook Form across web and mobile",
+  //     "Developed proficiency in building cross-platform applications sharing business logic between React and React Native",
+  //     "Understood the importance of transaction management in e-commerce checkout flows to maintain data integrity",
+  //   ],
+  //   isPublished: true,
+  //   content: [
+  //     { type: "heading", level: 2, text: "Overview" },
+  //     {
+  //       type: "paragraph",
+  //       text: "Total Liquor is a **full-stack multi-platform e-commerce solution** designed for the liquor retail industry. The platform enables liquor stores to manage their inventory, process orders, and accept payments through a unified system. Built with a **microservices-inspired architecture**, it consists of three interconnected applications: a customer-facing web storefront, a comprehensive admin dashboard, and a React Native mobile app for on-the-go shopping.",
+  //     },
+  //     {
+  //       type: "highlight",
+  //       variant: "info",
+  //       text: "This project implements Stripe Connect for marketplace functionality, allowing multiple liquor stores to onboard, manage their products, and receive payments with automatic platform fee deduction.",
+  //     },
+  //     { type: "heading", level: 2, text: "Key Features" },
+  //     {
+  //       type: "features",
+  //       items: [
+  //         {
+  //           title: "Multi-Vendor Marketplace",
+  //           description:
+  //             "Store owners can register, complete Stripe onboarding, manage their inventory, and receive payments directly to their connected accounts with automatic 10% platform fee.",
+  //         },
+  //         {
+  //           title: "Bulk Product Import",
+  //           description:
+  //             "Excel-based product import system that automatically creates categories, brands, products, and variants with intelligent data parsing and validation.",
+  //         },
+  //         {
+  //           title: "Real-time Order Management",
+  //           description:
+  //             "Complete order lifecycle management with status tracking (Pending → Preparing → Ready → Delivered), supporting both delivery and in-store pickup options.",
+  //         },
+  //         {
+  //           title: "Cross-Platform Mobile App",
+  //           description:
+  //             "React Native mobile application with NativeWind styling, featuring product browsing, cart management, Stripe payment integration via WebView, and order tracking.",
+  //         },
+  //         {
+  //           title: "Comprehensive Admin Dashboard",
+  //           description:
+  //             "Full administrative control over users, stores, products, categories, brands, inventory, orders, payments, discount codes, and blog content management.",
+  //         },
+  //       ],
+  //     },
+  //     { type: "heading", level: 2, text: "Technical Implementation" },
+  //     {
+  //       type: "paragraph",
+  //       text: "The backend is built with **Express.js 5** and uses **Sequelize ORM** with PostgreSQL for data persistence. The architecture follows a service-controller pattern with comprehensive validation using **Joi**. Authentication is handled via **JWT tokens** with role-based middleware protecting routes for customers, store owners, and administrators.",
+  //     },
+  //     {
+  //       type: "list",
+  //       items: [
+  //         "**Database Design**: 18+ interconnected models including User, Store, Product, ProductVariant, Inventory, Order, CartItem, Payment, and Discount with complex associations",
+  //         "**Payment Processing**: Stripe Connect Express integration with automatic account creation, onboarding sessions, payment intents, and transfer data for split payments",
+  //         "**State Management**: Redux Toolkit with RTK Query for efficient API caching, optimistic updates, and automatic refetching on the frontend",
+  //         "**Form Handling**: Zod schema validation with React Hook Form for type-safe form management across both web and mobile platforms",
+  //         "**File Processing**: XLSX library for parsing Excel uploads with header normalization, data validation, and batch database operations",
+  //       ],
+  //     },
+  //   ],
+  // },
   {
     title: "Total Liquor",
     description:
-      "A comprehensive multi-platform liquor e-commerce ecosystem featuring a web storefront, admin dashboard, store management portal, and React Native mobile app with Stripe Connect payment processing for multi-vendor marketplace functionality.",
+      "A full-stack B2B liquor marketplace connecting Texas restaurants and bars with licensed liquor stores, featuring real-time order management, Finix payment processing with split transfers, and TABC compliance automation.",
     image: "/project/total-liquor.png",
-    // link: 'https://github.com/yourusername/total-liquor',
+    // link: "https://github.com/DeveloperBilions/total-liquor-frontend",
     technologies: [
       { name: "React", icon: <ReactIcon />, href: "https://react.dev" },
-      {
-        name: "React Native",
-        icon: <ReactIcon />,
-        href: "https://reactnative.dev",
-      },
       { name: "Node.js", icon: <NodeJs />, href: "https://nodejs.org" },
       {
         name: "Express.js",
@@ -48,101 +164,114 @@ export const projects: Project[] = [
       {
         name: "PostgreSQL",
         icon: <PostgreSQL />,
-        href: "https://postgresql.org",
+        href: "https://www.postgresql.org",
       },
-      { name: "Sequelize", icon: <Sequelize />, href: "https://sequelize.org" },
+      {
+        name: "TailwindCSS",
+        icon: <TailwindCss />,
+        href: "https://tailwindcss.com",
+      },
       {
         name: "Redux Toolkit",
         icon: <Redux />,
         href: "https://redux-toolkit.js.org",
       },
-      {
-        name: "Tailwind CSS",
-        icon: <TailwindCss />,
-        href: "https://tailwindcss.com",
-      },
-      { name: "Stripe", icon: <Stripe />, href: "https://stripe.com" },
+      { name: "Socket.IO", icon: <SocketIo />, href: "https://socket.io" },
+      { name: "AWS S3", icon: <AWS />, href: "https://aws.amazon.com/s3" },
       { name: "Vite", icon: <Vite />, href: "https://vitejs.dev" },
-      { name: "Radix UI", icon: <RadixUI />, href: "https://radix-ui.com" },
-      { name: "Zod", icon: <Zod />, href: "https://zod.dev" },
     ],
-    // live: 'https://total-liquor.netlify.app',
+    // live: "https://totalliquor.com",
     details: true,
     projectDetailsPageSlug: "/projects/total-liquor",
     isWorking: false,
+    timeline: "6+ months",
     role: "Full Stack Developer",
+    team: "3 developers",
     status: "in-progress",
     featured: true,
     challenges: [
-      "Implementing Stripe Connect for multi-vendor marketplace with split payments and 10% platform fee calculation",
-      "Building a bulk product import system that parses Excel files, validates data, and creates hierarchical relationships (Categories → Brands → Products → Variants)",
-      "Designing a role-based access control system with separate authentication flows for customers, store owners, and administrators",
-      "Managing complex order state machine with multiple statuses (Pending → Preparing → Ready → Delivered) across different user roles",
-      "Synchronizing inventory management across multiple stores with real-time stock tracking and variant-level pricing",
+      "Implementing a two-step payment flow (authorization → capture) with Finix split transfers to automatically divide funds between store merchants and the platform, including idempotent webhook processing for transfer confirmations and fee reconciliation.",
+      "Building a real-time order lifecycle management system using Socket.IO that synchronizes order state transitions (placed → accepted → ready → in_transit → delivered) across buyer, seller, and admin dashboards with instant notifications and live board updates.",
+      "Designing a dynamic dual-flow pricing engine (Flow A / Flow B) with configurable seller margins, platform markups, and per-store overrides that recalculates prices in real-time via WebSocket broadcasts when admin settings change.",
+      "Architecting TABC (Texas Alcoholic Beverage Commission) license compliance automation with live API verification, scheduled cron-based license sync, expiration monitoring with automated email alerts, and order-blocking for non-compliant businesses.",
+      "Engineering a unified order acceptance system supporting full accept, partial modifications (item removal/quantity adjustment), order splitting for high-value orders (>$3,000 threshold), and store-initiated cancellations — each with corresponding payment adjustments (void/refund/re-authorization).",
     ],
     learnings: [
-      "Mastered Stripe Connect Express accounts for marketplace payment splitting and vendor onboarding flows",
-      "Gained expertise in building scalable multi-tenant architectures with Sequelize ORM and PostgreSQL",
-      "Learned to implement complex form validation using Zod schemas with React Hook Form across web and mobile",
-      "Developed proficiency in building cross-platform applications sharing business logic between React and React Native",
-      "Understood the importance of transaction management in e-commerce checkout flows to maintain data integrity",
+      "Mastered financial platform architecture including double-entry ledger accounting, split payment processing, settlement reconciliation, and zero-fee merchant profile management with Finix payment gateway.",
+      "Gained deep experience with B2B marketplace multi-tenancy patterns — county-based store assignment, role-based access control (owner/manager/staff/admin), and business-type routing guards for buyer vs. seller experiences.",
+      "Learned to implement robust cron-based background job orchestration with mutex guards for concurrent execution prevention, covering TABC license sync, Finix fee reconciliation, payout status sync, and auto-delivery marking.",
+      "Developed expertise in building production-grade checkout flows with card tokenization (Finix.js SDK), PCI-compliant payment instrument storage, authorization hold management, and graceful failure recovery with cart preservation.",
+      "Understood the complexity of building compliance-driven e-commerce — sticker management for regulatory tracking, TABC license verification workflows, county serviceability checks, and audit logging for every business-critical action.",
     ],
     isPublished: true,
     content: [
-      { type: "heading", level: 2, text: "Overview" },
+      {
+        type: "heading",
+        level: 2,
+        text: "Overview",
+      },
       {
         type: "paragraph",
-        text: "Total Liquor is a **full-stack multi-platform e-commerce solution** designed for the liquor retail industry. The platform enables liquor stores to manage their inventory, process orders, and accept payments through a unified system. Built with a **microservices-inspired architecture**, it consists of three interconnected applications: a customer-facing web storefront, a comprehensive admin dashboard, and a React Native mobile app for on-the-go shopping.",
+        text: "**Total Liquor** is a B2B liquor marketplace platform operating in **Texas** that connects **buyers** (restaurants, bars, and hospitality businesses) with **licensed liquor stores** (sellers) for wholesale liquor ordering with delivery. The platform handles the entire order lifecycle from product browsing and cart management through checkout, payment processing, order fulfillment, and settlement — all while enforcing **TABC (Texas Alcoholic Beverage Commission)** compliance at every step.",
       },
       {
         type: "highlight",
         variant: "info",
-        text: "This project implements Stripe Connect for marketplace functionality, allowing multiple liquor stores to onboard, manage their products, and receive payments with automatic platform fee deduction.",
+        text: "The platform processes payments via Finix with a two-step authorization → capture flow and automated split transfers, ensuring stores receive their earnings while the platform retains its commission. A double-entry ledger system tracks every financial transaction for complete audit transparency.",
       },
-      { type: "heading", level: 2, text: "Key Features" },
+      {
+        type: "heading",
+        level: 2,
+        text: "Key Features",
+      },
       {
         type: "features",
         items: [
           {
-            title: "Multi-Vendor Marketplace",
+            title: "Multi-Role B2B Marketplace",
             description:
-              "Store owners can register, complete Stripe onboarding, manage their inventory, and receive payments directly to their connected accounts with automatic 10% platform fee.",
+              "Three distinct user experiences — Buyer Portal for browsing 1,000+ products with advanced filtering (category, brand, spirit type, price range), Store Dashboard with real-time live order board and analytics, and Admin Panel with comprehensive platform management, user oversight, and financial reporting.",
           },
           {
-            title: "Bulk Product Import",
+            title: "Finix Payment Processing & Split Transfers",
             description:
-              "Excel-based product import system that automatically creates categories, brands, products, and variants with intelligent data parsing and validation.",
+              "Complete payment lifecycle management with PCI-compliant card tokenization via Finix.js SDK, two-step auth/capture flow, automated split transfers dividing funds between merchant and platform, webhook-driven confirmation, and support for voids, full/partial refunds, and dispute handling.",
           },
           {
-            title: "Real-time Order Management",
+            title: "Real-Time Order Management",
             description:
-              "Complete order lifecycle management with status tracking (Pending → Preparing → Ready → Delivered), supporting both delivery and in-store pickup options.",
+              "Socket.IO-powered live order board enabling instant state transitions (placed → accepted → ready → in_transit → delivered), unified order acceptance with modification/splitting capabilities, sub-order management, and real-time price update broadcasting across all connected clients.",
           },
           {
-            title: "Cross-Platform Mobile App",
+            title: "TABC Compliance & License Automation",
             description:
-              "React Native mobile application with NativeWind styling, featuring product browsing, cart management, Stripe payment integration via WebView, and order tracking.",
+              "Automated TABC license verification via live API checks during registration and checkout, scheduled daily license sync cron jobs, expiration monitoring with staged email alerts (warning → expired → reactivation), sticker management for regulatory tracking, and automatic order blocking for non-compliant businesses.",
           },
           {
-            title: "Comprehensive Admin Dashboard",
+            title: "Financial Platform & Analytics",
             description:
-              "Full administrative control over users, stores, products, categories, brands, inventory, orders, payments, discount codes, and blog content management.",
+              "Double-entry platform ledger tracking order revenue, processing fees, and store payouts. Comprehensive admin analytics with revenue trends, store performance comparisons, peak ordering hours, conversion rates, and customer LTV. Automated settlement reconciliation running daily with full P&L reporting.",
           },
         ],
       },
-      { type: "heading", level: 2, text: "Technical Implementation" },
+      {
+        type: "heading",
+        level: 2,
+        text: "Technical Implementation",
+      },
       {
         type: "paragraph",
-        text: "The backend is built with **Express.js 5** and uses **Sequelize ORM** with PostgreSQL for data persistence. The architecture follows a service-controller pattern with comprehensive validation using **Joi**. Authentication is handled via **JWT tokens** with role-based middleware protecting routes for customers, store owners, and administrators.",
+        text: "The application follows a **modern full-stack architecture** with a React 19 SPA frontend (Vite + TailwindCSS v4) communicating with an Express.js v4 REST API backed by PostgreSQL via Sequelize ORM. State management uses **RTK Query** with automated cache invalidation triggered by Socket.IO events, ensuring real-time data freshness without manual refetching. The backend employs 42 Sequelize models spanning the full domain — from core entities (users, businesses, orders, products) to financial models (payments, splits, ledger entries, settlements) and compliance models (licenses, stickers, audit logs).",
       },
       {
         type: "list",
         items: [
-          "**Database Design**: 18+ interconnected models including User, Store, Product, ProductVariant, Inventory, Order, CartItem, Payment, and Discount with complex associations",
-          "**Payment Processing**: Stripe Connect Express integration with automatic account creation, onboarding sessions, payment intents, and transfer data for split payments",
-          "**State Management**: Redux Toolkit with RTK Query for efficient API caching, optimistic updates, and automatic refetching on the frontend",
-          "**Form Handling**: Zod schema validation with React Hook Form for type-safe form management across both web and mobile platforms",
-          "**File Processing**: XLSX library for parsing Excel uploads with header normalization, data validation, and batch database operations",
+          "**Frontend Stack:** React 19 + Vite 7 + TailwindCSS v4, Radix UI primitives, RTK Query for API state management, React Hook Form + Zod validation, Recharts for analytics dashboards, and Socket.IO client for real-time updates.",
+          "**Backend Stack:** Express.js v4 on Node 18+, PostgreSQL with Sequelize ORM (42 models), Redis caching via ioredis, JWT authentication (15min access + 7d refresh tokens with automatic rotation), and rate limiting.",
+          "**Payment Infrastructure:** Finix payment gateway with seller KYB onboarding, card tokenization, auth/capture split-transfer flow, webhook processing with HMAC signature verification, zero-fee profile management, and automated fee reconciliation cron jobs.",
+          "**Background Jobs:** Six concurrent cron jobs — TABC license sync (daily), Finix fee reconciliation (every minute), capture retry for stuck payments (every 5 minutes), finance reconciliation (daily at 2 AM CST), payout status sync (every 30 minutes), and auto-delivery marking — all with mutex guards preventing concurrent execution.",
+          "**Cloud Services:** AWS S3 with presigned URLs for license document and product image storage, Nodemailer for transactional emails (OTP verification, license alerts, order notifications), and PDFKit/jsPDF for invoice and receipt generation.",
+          "**DevOps & Infrastructure:** Frontend deployed on Netlify with SPA redirects, backend on Render, GitHub for source control with PR-based workflow, and comprehensive environment-based configuration management.",
         ],
       },
     ],
@@ -617,7 +746,7 @@ export const projects: Project[] = [
     description:
       "India's premier e-commerce platform for track & field spikes, running shoes, and athletic gear with Razorpay payments.",
     image: "/project/runnerspikes.png",
-    link: 'https://www.runnerspikes.in',
+    link: "https://www.runnerspikes.in",
     technologies: [
       { name: "React", icon: <ReactIcon />, href: "https://react.dev/" },
       { name: "Node.js", icon: <NodeJs />, href: "https://nodejs.org/" },
@@ -639,7 +768,7 @@ export const projects: Project[] = [
       },
       { name: "AWS", icon: <AWS />, href: "https://aws.amazon.com/" },
     ],
-    live: 'https://www.runnerspikes.in',
+    live: "https://www.runnerspikes.in",
     details: true,
     projectDetailsPageSlug: "/projects/runner-spikes",
     isWorking: true,
