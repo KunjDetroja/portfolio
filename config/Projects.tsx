@@ -28,127 +28,6 @@ import Zod from "@/components/technologies/Zod";
 import { Project } from "@/types/project";
 
 export const projects: Project[] = [
-  // {
-  //   title: "Total Liquor",
-  //   description:
-  //     "A comprehensive multi-platform liquor e-commerce ecosystem featuring a web storefront, admin dashboard, store management portal, and React Native mobile app with Stripe Connect payment processing for multi-vendor marketplace functionality.",
-  //   image: "/project/total-liquor.png",
-  //   // link: 'https://github.com/yourusername/total-liquor',
-  //   technologies: [
-  //     { name: "React", icon: <ReactIcon />, href: "https://react.dev" },
-  //     {
-  //       name: "React Native",
-  //       icon: <ReactIcon />,
-  //       href: "https://reactnative.dev",
-  //     },
-  //     { name: "Node.js", icon: <NodeJs />, href: "https://nodejs.org" },
-  //     {
-  //       name: "Express.js",
-  //       icon: <ExpressJs />,
-  //       href: "https://expressjs.com",
-  //     },
-  //     {
-  //       name: "PostgreSQL",
-  //       icon: <PostgreSQL />,
-  //       href: "https://postgresql.org",
-  //     },
-  //     { name: "Sequelize", icon: <Sequelize />, href: "https://sequelize.org" },
-  //     {
-  //       name: "Redux Toolkit",
-  //       icon: <Redux />,
-  //       href: "https://redux-toolkit.js.org",
-  //     },
-  //     {
-  //       name: "Tailwind CSS",
-  //       icon: <TailwindCss />,
-  //       href: "https://tailwindcss.com",
-  //     },
-  //     { name: "Stripe", icon: <Stripe />, href: "https://stripe.com" },
-  //     { name: "Vite", icon: <Vite />, href: "https://vitejs.dev" },
-  //     { name: "Radix UI", icon: <RadixUI />, href: "https://radix-ui.com" },
-  //     { name: "Zod", icon: <Zod />, href: "https://zod.dev" },
-  //   ],
-  //   // live: 'https://total-liquor.netlify.app',
-  //   details: true,
-  //   projectDetailsPageSlug: "/projects/total-liquor",
-  //   isWorking: false,
-  //   role: "Full Stack Developer",
-  //   status: "in-progress",
-  //   featured: true,
-  //   challenges: [
-  //     "Implementing Stripe Connect for multi-vendor marketplace with split payments and 10% platform fee calculation",
-  //     "Building a bulk product import system that parses Excel files, validates data, and creates hierarchical relationships (Categories → Brands → Products → Variants)",
-  //     "Designing a role-based access control system with separate authentication flows for customers, store owners, and administrators",
-  //     "Managing complex order state machine with multiple statuses (Pending → Preparing → Ready → Delivered) across different user roles",
-  //     "Synchronizing inventory management across multiple stores with real-time stock tracking and variant-level pricing",
-  //   ],
-  //   learnings: [
-  //     "Mastered Stripe Connect Express accounts for marketplace payment splitting and vendor onboarding flows",
-  //     "Gained expertise in building scalable multi-tenant architectures with Sequelize ORM and PostgreSQL",
-  //     "Learned to implement complex form validation using Zod schemas with React Hook Form across web and mobile",
-  //     "Developed proficiency in building cross-platform applications sharing business logic between React and React Native",
-  //     "Understood the importance of transaction management in e-commerce checkout flows to maintain data integrity",
-  //   ],
-  //   isPublished: true,
-  //   content: [
-  //     { type: "heading", level: 2, text: "Overview" },
-  //     {
-  //       type: "paragraph",
-  //       text: "Total Liquor is a **full-stack multi-platform e-commerce solution** designed for the liquor retail industry. The platform enables liquor stores to manage their inventory, process orders, and accept payments through a unified system. Built with a **microservices-inspired architecture**, it consists of three interconnected applications: a customer-facing web storefront, a comprehensive admin dashboard, and a React Native mobile app for on-the-go shopping.",
-  //     },
-  //     {
-  //       type: "highlight",
-  //       variant: "info",
-  //       text: "This project implements Stripe Connect for marketplace functionality, allowing multiple liquor stores to onboard, manage their products, and receive payments with automatic platform fee deduction.",
-  //     },
-  //     { type: "heading", level: 2, text: "Key Features" },
-  //     {
-  //       type: "features",
-  //       items: [
-  //         {
-  //           title: "Multi-Vendor Marketplace",
-  //           description:
-  //             "Store owners can register, complete Stripe onboarding, manage their inventory, and receive payments directly to their connected accounts with automatic 10% platform fee.",
-  //         },
-  //         {
-  //           title: "Bulk Product Import",
-  //           description:
-  //             "Excel-based product import system that automatically creates categories, brands, products, and variants with intelligent data parsing and validation.",
-  //         },
-  //         {
-  //           title: "Real-time Order Management",
-  //           description:
-  //             "Complete order lifecycle management with status tracking (Pending → Preparing → Ready → Delivered), supporting both delivery and in-store pickup options.",
-  //         },
-  //         {
-  //           title: "Cross-Platform Mobile App",
-  //           description:
-  //             "React Native mobile application with NativeWind styling, featuring product browsing, cart management, Stripe payment integration via WebView, and order tracking.",
-  //         },
-  //         {
-  //           title: "Comprehensive Admin Dashboard",
-  //           description:
-  //             "Full administrative control over users, stores, products, categories, brands, inventory, orders, payments, discount codes, and blog content management.",
-  //         },
-  //       ],
-  //     },
-  //     { type: "heading", level: 2, text: "Technical Implementation" },
-  //     {
-  //       type: "paragraph",
-  //       text: "The backend is built with **Express.js 5** and uses **Sequelize ORM** with PostgreSQL for data persistence. The architecture follows a service-controller pattern with comprehensive validation using **Joi**. Authentication is handled via **JWT tokens** with role-based middleware protecting routes for customers, store owners, and administrators.",
-  //     },
-  //     {
-  //       type: "list",
-  //       items: [
-  //         "**Database Design**: 18+ interconnected models including User, Store, Product, ProductVariant, Inventory, Order, CartItem, Payment, and Discount with complex associations",
-  //         "**Payment Processing**: Stripe Connect Express integration with automatic account creation, onboarding sessions, payment intents, and transfer data for split payments",
-  //         "**State Management**: Redux Toolkit with RTK Query for efficient API caching, optimistic updates, and automatic refetching on the frontend",
-  //         "**Form Handling**: Zod schema validation with React Hook Form for type-safe form management across both web and mobile platforms",
-  //         "**File Processing**: XLSX library for parsing Excel uploads with header normalization, data validation, and batch database operations",
-  //       ],
-  //     },
-  //   ],
-  // },
   {
     title: "Total Liquor",
     description:
@@ -274,6 +153,121 @@ export const projects: Project[] = [
           "**Background Jobs:** Six concurrent cron jobs — TABC license sync (daily), Finix fee reconciliation (every minute), capture retry for stuck payments (every 5 minutes), finance reconciliation (daily at 2 AM CST), payout status sync (every 30 minutes), and auto-delivery marking — all with mutex guards preventing concurrent execution.",
           "**Cloud Services:** AWS S3 with presigned URLs for license document and product image storage, Nodemailer for transactional emails (OTP verification, license alerts, order notifications), and PDFKit/jsPDF for invoice and receipt generation.",
           "**DevOps & Infrastructure:** Frontend deployed on Netlify with SPA redirects, backend on Render, GitHub for source control with PR-based workflow, and comprehensive environment-based configuration management.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "AOG Coin — Sweepstakes Casino Platform",
+    description:
+      "A full-stack sweepstakes casino platform featuring a dual-currency system (Gold Coins & Sweepstakes Coins), 80+ integrated casino games, real-time payment processing, KYC verification, and a multi-role admin dashboard with agent accounting.",
+    image: "/project/aog-coin.png",
+    // link: "https://www.aogcoin.club",
+    technologies: [
+      { name: "React", icon: <ReactIcon />, href: "https://react.dev" },
+      { name: "Vite", icon: <Vite />, href: "https://vitejs.dev" },
+      {
+        name: "Tailwind CSS",
+        icon: <TailwindCss />,
+        href: "https://tailwindcss.com",
+      },
+      {
+        name: "Redux Toolkit",
+        icon: <Redux />,
+        href: "https://redux-toolkit.js.org",
+      },
+      { name: "Node.js", icon: <NodeJs />, href: "https://nodejs.org" },
+      { name: "Express", icon: <ExpressJs />, href: "https://expressjs.com" },
+      { name: "MySQL", icon: <MySQL />, href: "https://www.mysql.com" },
+      { name: "Socket.IO", icon: <SocketIo />, href: "https://socket.io" },
+      { name: "AWS S3", icon: <AWS />, href: "https://aws.amazon.com/s3" },
+      {
+        name: "Passport.js",
+        icon: <PassportJs />,
+        href: "https://www.passportjs.org",
+      },
+    ],
+    // live: "https://www.aogcoin.club",
+    details: true,
+    projectDetailsPageSlug: "/projects/aog-coin",
+    isWorking: true,
+    timeline: "6+ months",
+    role: "Full Stack Developer",
+    team: "2 developers",
+    status: "in-progress" as const,
+    featured: true,
+    challenges: [
+      "Integrating multiple payment gateways (Finix, CommerceHub, Fiserv DDP, Link.money) with webhook-driven transaction lifecycle management, idempotent processing, and cron-based polling for pending settlements.",
+      "Building a secure game provider integration layer with token-based authentication, MD5 secure-key generation, real-time balance synchronization, and seamless bet/win transaction settlement across the TADA game API.",
+      "Implementing a dual-currency sweepstakes model (Gold Coins & Sweepstakes Coins) with separate balance ledgers, escrow-based redemption workflows, and sweepstakes-compliant prize redemption logic.",
+      "Designing a multi-role access control system (Player, Agent, Admin, Super Admin) with role-based routing, JWT session management, session versioning for forced single-device login, and real-time Socket.IO force-logout events.",
+      "Architecting a referral fraud prevention system with signup-attempt tracking, automated fraud detection heuristics, and admin review workflows to prevent coordinated abuse of referral bonus programs.",
+    ],
+    learnings: [
+      "Mastered webhook-driven payment architectures with Finix and Fiserv, learning to handle asynchronous settlement flows, retry logic, and reconciliation between multiple payment providers.",
+      "Gained deep experience with sweepstakes compliance models — understanding the legal distinction between Gold Coins (entertainment value) and Sweepstakes Coins (prize-redeemable) and implementing the dual-currency ledger accordingly.",
+      "Learned to build robust real-time systems using Socket.IO with JWT-authenticated rooms, enabling instant balance updates, force-logout across devices, and live transaction status notifications.",
+      "Developed expertise in identity verification workflows by integrating SEON for KYC document verification, Google reCAPTCHA for bot prevention, and multi-step verification bonuses tied to email/phone/document validation.",
+      "Advanced understanding of database evolution at scale — managing 53+ incremental SQL migrations to iteratively add agent accounting, game catalog management, referral fraud detection, and transaction logging without downtime.",
+    ],
+    isPublished: true,
+    content: [
+      { type: "heading", level: 2, text: "Overview" },
+      {
+        type: "paragraph",
+        text: "AOG Coin is a production-grade sweepstakes casino platform built for Bilions. It operates a dual-currency model — players receive Gold Coins (GC) for entertainment gameplay and Sweepstakes Coins (SC) through free bonuses and promotions, with SC winnings redeemable for real cash prizes via ACH bank transfers. The platform integrates 80+ casino games through the TADA game provider, supports real-money purchases via Finix and CommerceHub payment gateways, and features a comprehensive multi-role admin dashboard for user management, transaction oversight, KYC review, and agent accounting.",
+      },
+      {
+        type: "highlight",
+        variant: "info",
+        text: "AOG Coin is fully sweepstakes-compliant with 'No Purchase Necessary' promotional rules. The platform uses a legally-structured dual-currency system where Gold Coins have no monetary value and Sweepstakes Coins are distributed through free bonuses, promotions, and daily rewards.",
+      },
+      { type: "heading", level: 2, text: "Key Features" },
+      {
+        type: "features",
+        items: [
+          {
+            title: "Dual-Currency Game Lobby & 80+ Casino Games",
+            description:
+              "Players browse a dynamic game catalog (slots, fishing, bingo, table games) fetched from the TADA game provider API. Games launch in-browser via a tokenized session with real-time GC/SC balance synchronization, bet/win settlement, and session tracking. Players can toggle between Gold Coin and Sweepstakes Coin wallets.",
+          },
+          {
+            title: "Multi-Gateway Payment Processing & Redemptions",
+            description:
+              "Full purchase-to-payout lifecycle supporting Finix (card tokenization), CommerceHub, and Fiserv DDP for GC package purchases. SC redemptions go through admin review → ACH payout via Finix payouts or Link.money, with webhook-driven status updates, automatic refunds on failure, and cron-based settlement polling.",
+          },
+          {
+            title: "Multi-Role Admin Dashboard & Agent System",
+            description:
+              "Role-based dashboards for Players, Agents, Admins, and Super Admins. Admins manage users, review KYC documents, oversee transactions, handle support tickets, and configure GC packages. Agents have dedicated accounting panels, balance logs, referral link management, and player-specific transaction views.",
+          },
+          {
+            title: "Player Engagement & Rewards Engine",
+            description:
+              "Comprehensive engagement system including daily login bonuses with streak tracking, tiered verification bonuses (email → phone → KYC), referral programs with fraud prevention, first-purchase mega offers, VIP club tiers, and an interactive onboarding walkthrough for new players.",
+          },
+          {
+            title: "Identity Verification & Security Infrastructure",
+            description:
+              "Multi-layer security: SEON-powered KYC document verification, geo-fencing for restricted jurisdictions, Google reCAPTCHA bot prevention, session versioning with Socket.IO force-logout for single-device enforcement, rate limiting, dev-tools detection, and inactivity-based auto-logout.",
+          },
+        ],
+      },
+      { type: "heading", level: 2, text: "Technical Implementation" },
+      {
+        type: "paragraph",
+        text: "The platform is split into two repositories: a Node.js/Express REST API with MySQL and a React (Vite) SPA deployed to Netlify. The backend uses a layered MVC architecture (routes → controllers → services → DB utilities) with 26 service modules totaling 578KB of business logic. The frontend employs RTK Query for API state management, Socket.IO hooks for real-time events, and Radix UI + Tailwind CSS v4 for the component library.",
+      },
+      {
+        type: "list",
+        items: [
+          "Authentication: JWT-based auth with Passport.js strategies for Google, Discord, and Twitch OAuth. Session versioning ensures single-device login enforcement with Socket.IO-triggered force-logout events.",
+          "Payment Architecture: Webhook-driven flow with idempotent processing. Purchases: user selects package → Finix/CommerceHub tokenizes card → backend creates transfer → webhook confirms → credits GC + bonus SC. Redemptions: user requests SC cashout → SC escrow → admin review → Finix payout/Link.money ACH → webhook settles.",
+          "Game Integration: TADA API integration with MD5 secure-key generation, token-based session management, and a /bet endpoint that validates balances, executes bet/win settlement, and updates the user's wallet atomically via the AOG Club API.",
+          "Real-Time System: Socket.IO server with JWT middleware, role-based room assignments (user_{id}, member_{id}, admins), enabling live balance updates on purchases/bets, force-logout on concurrent sessions, and real-time transaction status notifications.",
+          "Database: MySQL with 53+ incremental SQL migrations covering the full schema evolution — from the initial sweepstake casino schema to agent accounting, game catalogs, referral fraud prevention, dispute management, and transaction logging.",
+          "Frontend Architecture: React 19 + Vite 6 SPA with React Router v7, Redux Toolkit with RTK Query (23 API service files), custom hooks (socket connections, SEO, inactivity logout, dev-tools detection), and a PWA manifest with service worker support.",
+          "DevOps & SEO: Netlify deployment with SPA redirects, structured data (Organization + WebSite schema), Open Graph/Twitter cards, Google Analytics + Microsoft Clarity integration, and Google reCAPTCHA v2 for form protection.",
         ],
       },
     ],
