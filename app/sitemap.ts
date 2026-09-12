@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://kunjdetroja.vercel.app';
+    const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://kunj.me';
 
     // Get current date for lastModified
     const currentDate = new Date();

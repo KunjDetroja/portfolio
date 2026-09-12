@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://kunjdetroja.vercel.app';
+    const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://kunj.me';
 
     return {
         rules: {

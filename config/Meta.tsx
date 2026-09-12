@@ -4,9 +4,12 @@ import { PageMeta } from '@/types/meta';
 export const siteConfig = {
   name: 'Kunj Detroja',
   title: 'Kunj Detroja Portfolio',
-  description: 'Full Stack Developer specializing in fintech, HRMS, and AI domains',
-  url: process.env.NEXT_PUBLIC_URL || 'http://localhost:3000',
+  description:
+    'Kunj Detroja is a Full Stack Developer specializing in fintech, HRMS, and AI domains.',
+  url: process.env.NEXT_PUBLIC_URL || 'https://kunj.me',
   ogImage: '/meta/opengraph-image.png',
+  // Replace with your actual Google Search Console verification code
+  googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
   author: {
     name: 'Kunj Detroja',
     twitter: '@kunjdetroja',
@@ -15,6 +18,8 @@ export const siteConfig = {
     email: 'kunjdetroja52@gmail.com',
   },
   keywords: [
+    'Kunj Detroja',
+    'Full Stack Developer',
     'portfolio',
     'developer',
     'full-stack',
@@ -23,23 +28,26 @@ export const siteConfig = {
     'typescript',
     'web development',
     'software engineer',
-    'kunj detroja',
-    'mern stack',
+    'MERN stack',
+    'Kunj Detroja developer',
+    'Kunj Detroja portfolio',
   ],
 };
 
 export const pageMetadata: Record<string, PageMeta> = {
   // Home page
   '/': {
-    title: `Kunj Detroja - Full Stack Developer`,
-    description: `Full Stack Developer building scalable web apps with focus on fintech, HRMS, and AI domains.`,
+    title: `Kunj Detroja - Full Stack Developer | Portfolio`,
+    description: `Kunj Detroja is a Full Stack Developer building scalable web apps with focus on fintech, HRMS, and AI domains. View portfolio, projects, and experience.`,
     keywords: [
+      'Kunj Detroja',
+      'Full Stack Developer',
       'portfolio',
       'developer',
       'full-stack',
       'web development',
       'projects',
-      'mern stack',
+      'MERN stack',
     ],
     ogImage: '/meta/hero.png',
     twitterCard: 'summary_large_image',
@@ -47,21 +55,21 @@ export const pageMetadata: Record<string, PageMeta> = {
 
   // Contact page
   '/contact': {
-    title: 'Contact - Get in Touch',
+    title: 'Contact Kunj Detroja - Get in Touch',
     description:
-      "Get in touch with me for collaborations, projects, or opportunities. I'd love to hear from you!",
-    keywords: ['contact', 'hire', 'collaboration', 'freelance', 'developer'],
+      "Get in touch with Kunj Detroja for collaborations, projects, or opportunities. Full Stack Developer available for hire.",
+    keywords: ['contact', 'hire Kunj Detroja', 'collaboration', 'freelance', 'developer'],
     ogImage: '/meta/contact.png',
     twitterCard: 'summary',
   },
 
   // Work Experience page
   '/work-experience': {
-    title: 'Work Experience - Professional Journey',
+    title: 'Kunj Detroja - Work Experience & Professional Journey',
     description:
-      'Explore my professional work experience across different companies and roles in software development.',
+      "Explore Kunj Detroja's professional work experience across different companies and roles in software development.",
     keywords: [
-      'work experience',
+      'Kunj Detroja work experience',
       'career',
       'professional',
       'software developer',
@@ -73,11 +81,11 @@ export const pageMetadata: Record<string, PageMeta> = {
 
   // Projects page
   '/projects': {
-    title: 'Projects - My Work & Projects Portfolio',
+    title: 'Kunj Detroja - Projects & Work Portfolio',
     description:
-      'Discover my projects and work across different technologies and domains. From web apps to mobile solutions.',
+      "Discover Kunj Detroja's projects and work across different technologies and domains. From web apps to mobile solutions.",
     keywords: [
-      'projects',
+      'Kunj Detroja projects',
       'portfolio',
       'web development',
       'applications',
@@ -104,6 +112,12 @@ export function generateMetadata(pathname: string) {
     keywords: pageMeta.keywords?.join(', '),
     authors: [{ name: siteConfig.author.name }],
     creator: siteConfig.author.name,
+    // Google Search Console verification
+    ...(siteConfig.googleSiteVerification && {
+      verification: {
+        google: siteConfig.googleSiteVerification,
+      },
+    }),
     openGraph: {
       type: 'website',
       url: `${siteConfig.url}${pathname}`,
