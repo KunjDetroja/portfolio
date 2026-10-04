@@ -71,7 +71,7 @@ export const experiences: Experience[] = [
   {
     isCurrent: false,
     company: 'Trakky Techno',
-    position: 'Backend Developer Intern',
+    position: 'Backend Developer Associate',
     location: 'Work from Home',
     image: '/company/trakky.png',
     description: [
