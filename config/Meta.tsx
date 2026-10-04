@@ -5,7 +5,7 @@ export const siteConfig = {
   name: 'Kunj Detroja',
   title: 'Kunj Detroja Portfolio',
   description:
-    'Kunj Detroja is a Full Stack Developer specializing in fintech, HRMS, and AI domains.',
+    'Kunj Detroja is a Full Stack Developer building web, backend, and mobile products with React, Next.js, Node.js, and React Native.',
   url: process.env.NEXT_PUBLIC_URL || 'https://kunj.me',
   ogImage: '/meta/opengraph-image.png',
   // Replace with your actual Google Search Console verification code
@@ -38,7 +38,7 @@ export const pageMetadata: Record<string, PageMeta> = {
   // Home page
   '/': {
     title: `Kunj Detroja - Full Stack Developer | Portfolio`,
-    description: `Kunj Detroja is a Full Stack Developer building scalable web apps with focus on fintech, HRMS, and AI domains. View portfolio, projects, and experience.`,
+    description: `Kunj Detroja is a Full Stack Developer building web, backend, and mobile products. View portfolio, projects, and experience.`,
     keywords: [
       'Kunj Detroja',
       'Full Stack Developer',
@@ -57,7 +57,7 @@ export const pageMetadata: Record<string, PageMeta> = {
   '/contact': {
     title: 'Contact Kunj Detroja - Get in Touch',
     description:
-      "Get in touch with Kunj Detroja for collaborations, projects, or opportunities. Full Stack Developer available for hire.",
+      "Get in touch with Kunj Detroja for collaborations, projects, or opportunities. Discuss employment opportunities and freelance work.",
     keywords: ['contact', 'hire Kunj Detroja', 'collaboration', 'freelance', 'developer'],
     ogImage: '/meta/contact.png',
     twitterCard: 'summary',

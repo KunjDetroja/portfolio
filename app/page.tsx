@@ -6,32 +6,19 @@ import About from '@/components/landing/About';
 import Education from '@/components/landing/Education';
 import Life from '@/components/landing/Life';
 import AnimatedSection from '@/components/common/AnimatedSection';
-import CTA from '@/components/landing/CTA';
 
-export default function page() {
+export default function Page() {
   return (
     <Container className="min-h-screen py-12">
-      <AnimatedSection>
-        <Hero />
-      </AnimatedSection>
-      <AnimatedSection delay={50}>
-        <Experience />
-      </AnimatedSection>
-      <AnimatedSection delay={100}>
-        <Projects />
-      </AnimatedSection>
-      <AnimatedSection delay={150}>
-        <Education />
-      </AnimatedSection>
-      <AnimatedSection delay={200}>
-        <Life />
-      </AnimatedSection>
-      <AnimatedSection delay={250}>
-        <About />
-      </AnimatedSection>
-      {/* <AnimatedSection delay={300}>
-        <CTA />
-      </AnimatedSection> */}
+      <AnimatedSection><Hero /></AnimatedSection>
+      <AnimatedSection><Projects /></AnimatedSection>
+      <AnimatedSection><Experience /></AnimatedSection>
+      <AnimatedSection><About /></AnimatedSection>
+      <AnimatedSection><Education /></AnimatedSection>
+      <AnimatedSection><Life /></AnimatedSection>
+      <div className="mt-16 text-center">
+        <a className="inline-flex min-h-11 items-center underline underline-offset-4" href="/contact">Discuss an employment opportunity or freelance project</a>
+      </div>
     </Container>
   );
 }

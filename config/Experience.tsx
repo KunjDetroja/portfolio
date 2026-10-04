@@ -3,7 +3,6 @@ import MongoDB from '@/components/technologies/MongoDB';
 import NodeJs from '@/components/technologies/NodeJs';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import SocketIo from '@/components/technologies/SocketIo';
-import Stripe from '@/components/technologies/Stripe';
 import TailwindCss from '@/components/technologies/TailwindCss';
 import TypeScript from '@/components/technologies/TypeScript';
 import { Experience } from '@/types/experience';
@@ -17,11 +16,10 @@ export const experiences: Experience[] = [
     location: 'Work from Home',
     image: '/company/bilion.png',
     description: [
-      'Built and deployed full-stack applications across fintech, HRMS, and AI domains using MERN stack.',
-      'Developed scalable backend modules with RESTful APIs and real-time features via Socket.IO.',
-      'Implemented AI-powered proposal generation system using LLMs and Puppeteer for automated PDF output.',
-      'Integrated Stripe for secure payment processing and subscription management.',
-      'Redesigned UI workflows in Figma and implemented with React, Redux RTK Query, and Tailwind CSS.',
+      'Total Liquor: built buyer/seller interfaces, relational order APIs, Finix payment flows, and real-time operational updates.',
+      'AOG: worked across React dashboards, React Native/Expo mobile flows, and MySQL-backed wallet and rewards services.',
+      'HRMS: implemented employee, attendance, payroll, organization, and Google Drive integration workflows.',
+      'Winbid: built procurement discovery, document processing, AI-assisted generation, progress reporting, and DOCX export.',
     ],
     startDate: 'February 2025',
     endDate: 'Present',
@@ -54,9 +52,9 @@ export const experiences: Experience[] = [
         icon: <SocketIo />,
       },
       {
-        name: 'Stripe',
-        href: 'https://stripe.com/',
-        icon: <Stripe />,
+        name: 'Finix',
+        href: 'https://finix.com/',
+        icon: null,
       },
       {
         name: 'Tailwind CSS',
@@ -84,16 +82,8 @@ export const experiences: Experience[] = [
     startDate: 'July 2023',
     endDate: 'October 2023',
     technologies: [
-      {
-        name: 'Node.js',
-        href: 'https://nodejs.org/',
-        icon: <NodeJs />,
-      },
-      {
-        name: 'Express',
-        href: 'https://expressjs.com/',
-        icon: <ExpressJs />,
-      },
+      { name: 'Django', href: 'https://www.djangoproject.com/', icon: null },
+      { name: 'SQLite', href: 'https://www.sqlite.org/', icon: null },
     ],
     // website: 'https://trakky.in/',
     // linkedin: 'https://www.linkedin.com/company/trakky/',

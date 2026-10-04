@@ -2,11 +2,11 @@ import Footer from '@/components/common/Footer';
 import Navbar from '@/components/common/Navbar';
 import OnekoCat from '@/components/common/OnekoCat';
 import { Quote } from '@/components/common/Quote';
-import { SmoothScrollRestore } from '@/components/common/SmoothScrollRestore';
+
 import { CommandPalette } from '@/components/commandPalette/CommandPalette';
 import { CommandPaletteProvider } from '@/lib/command-palette-context';
 import { generateMetadata as getMetadata, siteConfig } from '@/config/Meta';
-import ReactLenis from 'lenis/react';
+
 import { ViewTransitions } from 'next-view-transitions';
 import Script from 'next/script';
 
@@ -36,7 +36,7 @@ const jsonLd = {
     'React',
     'Node.js',
     'MongoDB',
-    'MERN Stack',
+    'Next.js', 'PostgreSQL', 'Redis', 'React Native', 'Expo', 'Prisma', 'Drizzle', 'Testing',
     'Full Stack Development',
     'Fintech',
     'HRMS',
@@ -68,14 +68,14 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <CommandPaletteProvider>
-              <ReactLenis root>
-                <SmoothScrollRestore />
-                <Navbar />
-                {children}
-                <OnekoCat />
-                <Quote />
-                <Footer />
-              </ReactLenis>
+              <a href="#main-content" className="skip-link">Skip to content</a>
+
+              <Navbar />
+              <main id="main-content" tabIndex={-1}>{children}</main>
+              <OnekoCat />
+              <Quote />
+              <Footer />
+
               <CommandPalette />
               <Toaster />
             </CommandPaletteProvider>

@@ -10,7 +10,7 @@ export default function BackToTop() {
 //   const { triggerHaptic, isMobile } = useHapticFeedback();
 
   const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 
     // Trigger haptic feedback on mobile devices
     // if (isMobile()) {
@@ -24,7 +24,8 @@ export default function BackToTop() {
         <Button
           variant="outline"
           size="icon"
-          className="hover:cursor-pointer fixed bottom-4 right-10 md:right-20 z-50 bg-white dark:bg-black"
+          aria-label="Back to top"
+          className="size-11 hover:cursor-pointer fixed bottom-4 right-10 md:right-20 z-50 bg-white dark:bg-black"
           onClick={handleClick}
         >
           <ArrowUp className="size-4" />

@@ -1,7 +1,7 @@
 import Container from '@/components/common/Container';
-import { ProjectList } from '@/components/projects/ProjectList';
+import { ProjectExplorer } from '@/components/projects/ProjectExplorer';
 import { Separator } from '@/components/ui/separator';
-import { projects } from '@/config/Projects';
+import { getPublishedProjects } from '@/lib/projects';
 import { generateMetadata as getMetadata } from '@/config/Meta';
 import { Metadata } from 'next';
 import AnimatedSection from '@/components/common/AnimatedSection';
@@ -45,16 +45,16 @@ export default function ProjectsPage() {
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-semibold">
                 All Projects
-                {projects.length > 0 && (
+                {getPublishedProjects().length > 0 && (
                   <span className="ml-2 text-sm font-normal text-muted-foreground">
-                    ({projects.length}{' '}
-                    {projects.length === 1 ? 'project' : 'projects'})
+                    ({getPublishedProjects().length}{' '}
+                    {getPublishedProjects().length === 1 ? 'project' : 'projects'})
                   </span>
                 )}
               </h2>
             </div>
 
-            <ProjectList projects={projects} />
+            <ProjectExplorer />
           </div>
         </AnimatedSection>
       </div>

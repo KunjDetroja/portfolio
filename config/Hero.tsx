@@ -1,7 +1,6 @@
 import Github from "@/components/svgs/Github";
 import LinkedIn from "@/components/svgs/LinkedIn";
 import Mail from "@/components/svgs/Mail";
-import X from "@/components/svgs/X";
 import MongoDB from "@/components/technologies/MongoDB";
 import NodeJs from "@/components/technologies/NodeJs";
 import ReactIcon from "@/components/technologies/ReactIcon";

@@ -14,6 +14,7 @@ export function CommandPaletteButton() {
         <Tooltip delayDuration={0}>
             <TooltipTrigger asChild>
                 <button
+                    aria-label="Search projects and commands"
                     onClick={() => setOpen(true)}
                     className="flex items-center gap-2 px-2 py-1 text-sm text-neutral-500 dark:text-neutral-400 rounded-sm border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-neutral-900/30 hover:bg-neutral-100 dark:hover:bg-neutral-900 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
                 >

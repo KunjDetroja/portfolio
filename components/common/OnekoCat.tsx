@@ -1,22 +1,5 @@
-'use client';
-
-import Script from 'next/script';
-import { useEffect, useState } from 'react';
-
-const ONEKO_ENABLED_KEY = 'portfolio-oneko-enabled';
-
-export default function OnekoCat() {
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    const stored = localStorage.getItem(ONEKO_ENABLED_KEY);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setEnabled(stored === 'true');
-  }, []);
-
-  if (!enabled) {
-    return null;
-  }
-
-  return <Script src="./oneko/oneko.js" data-cat="./oneko/oneko.gif" />;
-}
+ 'use client';
+import { useEffect } from 'react';
+import { safeStorage } from '@/lib/safe-storage';
+import { setOnekoVisible } from '@/lib/oneko';
+export default function OnekoCat() { useEffect(()=>{const enabled=safeStorage.getItem('portfolio-oneko-enabled')==='true';document.documentElement.dataset.oneko=String(enabled);setOnekoVisible(enabled);},[]);return null; }

@@ -19,7 +19,7 @@ export const useThemeToggle = ({
   blur?: boolean;
   gifUrl?: string;
 } = {}) => {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   const [isDark, setIsDark] = useState(false);
 
@@ -61,17 +61,18 @@ export const useThemeToggle = ({
     if (typeof window === 'undefined') return;
 
     const switchTheme = () => {
-      setTheme(theme === 'light' ? 'dark' : 'light');
+      setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
     };
 
-    if (!document.startViewTransition) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !document.startViewTransition) {
+      clearStyles();
       switchTheme();
       return;
     }
 
     const transition = document.startViewTransition(switchTheme);
-    transition.finished.then(clearStyles).catch(() => { });
-  }, [theme, setTheme, variant, start, blur, gifUrl, updateStyles, clearStyles, isDark, setIsDark]);
+    transition.finished.then(clearStyles, clearStyles);
+  }, [resolvedTheme, setTheme, variant, start, blur, gifUrl, updateStyles, clearStyles, isDark, setIsDark]);
 
   const setCrazyLightTheme = useCallback((overRideOptions?: { variant?: AnimationVariant; start?: AnimationStart | AnimationCoords; blur?: boolean; gifUrl?: string }) => {
     setIsDark(false);
@@ -88,13 +89,14 @@ export const useThemeToggle = ({
       setTheme('light');
     };
 
-    if (!document.startViewTransition) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !document.startViewTransition) {
+      clearStyles();
       switchTheme();
       return;
     }
 
     const transition = document.startViewTransition(switchTheme);
-    transition.finished.then(clearStyles).catch(() => { });
+    transition.finished.then(clearStyles, clearStyles);
   }, [setTheme, updateStyles, clearStyles, setIsDark]);
 
   const setCrazyDarkTheme = useCallback((overRideOptions?: { variant?: AnimationVariant; start?: AnimationStart | AnimationCoords; blur?: boolean; gifUrl?: string }) => {
@@ -112,13 +114,14 @@ export const useThemeToggle = ({
       setTheme('dark');
     };
 
-    if (!document.startViewTransition) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !document.startViewTransition) {
+      clearStyles();
       switchTheme();
       return;
     }
 
     const transition = document.startViewTransition(switchTheme);
-    transition.finished.then(clearStyles).catch(() => { });
+    transition.finished.then(clearStyles, clearStyles);
   }, [setTheme, updateStyles, clearStyles, setIsDark]);
 
   const setSystemTheme = useCallback((overRideOptions?: { variant?: AnimationVariant; start?: AnimationStart | AnimationCoords; blur?: boolean; gifUrl?: string }) => {
@@ -136,13 +139,14 @@ export const useThemeToggle = ({
       setTheme('system');
     };
 
-    if (!document.startViewTransition) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !document.startViewTransition) {
+      clearStyles();
       switchTheme();
       return;
     }
 
     const transition = document.startViewTransition(switchTheme);
-    transition.finished.then(clearStyles).catch(() => { });
+    transition.finished.then(clearStyles, clearStyles);
   }, [setTheme, updateStyles, clearStyles, setIsDark]);
 
   return {
@@ -192,7 +196,7 @@ export const ThemeToggleButton = ({
       variant="ghost"
       size="icon"
       className={cn(
-        'size-10 cursor-pointer  p-0 transition-all duration-300 active:scale-95',
+        'size-11 cursor-pointer  p-0 transition-all duration-300 active:scale-95',
         className,
       )}
       onClick={handleClick}

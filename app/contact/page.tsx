@@ -29,7 +29,7 @@ export default function ContactPage() {
                         Contact
                     </h1>
                     <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-                        Get in touch with me. I will get back to you as soon as possible.
+                        I welcome employment opportunities and freelance projects across web, backend, and mobile. Tell me about the role or project, your goals, and any timeline.
                     </p>
                 </div>
 

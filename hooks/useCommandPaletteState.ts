@@ -1,5 +1,7 @@
 'use client';
 
+import { safeStorage } from '@/lib/safe-storage';
+import { setOnekoVisible } from '@/lib/oneko';
 import { useState, useCallback, useEffect } from 'react';
 import { RECENT_COMMANDS_KEY, ONEKO_ENABLED_KEY, MAX_RECENT } from '@/config/CommandPalette';
 
@@ -11,13 +13,13 @@ export function useRecentCommands() {
 
     // Load recent commands from localStorage
     useEffect(() => {
-        const stored = localStorage.getItem(RECENT_COMMANDS_KEY);
+        const stored = safeStorage.getItem(RECENT_COMMANDS_KEY);
         if (stored) {
             try {
                 // eslint-disable-next-line react-hooks/set-state-in-effect
-                setRecentIds(JSON.parse(stored));
+                setRecentIds((() => { const ids: unknown = JSON.parse(stored); return Array.isArray(ids) ? ids.filter((id): id is string => typeof id === 'string').slice(0,MAX_RECENT) : []; })());
             } catch {
-                setRecentIds([]);
+                // Ignore malformed stored preferences.
             }
         }
     }, []);
@@ -26,7 +28,7 @@ export function useRecentCommands() {
         setRecentIds((prev) => {
             const filtered = prev.filter((i) => i !== id);
             const updated = [id, ...filtered].slice(0, MAX_RECENT);
-            localStorage.setItem(RECENT_COMMANDS_KEY, JSON.stringify(updated));
+            safeStorage.setItem(RECENT_COMMANDS_KEY, JSON.stringify(updated));
             return updated;
         });
     }, []);
@@ -42,7 +44,7 @@ export function useOnekoState() {
 
     // Load oneko state from localStorage
     useEffect(() => {
-        const onekoStored = localStorage.getItem(ONEKO_ENABLED_KEY);
+        const onekoStored = safeStorage.getItem(ONEKO_ENABLED_KEY);
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setOnekoEnabled(onekoStored === 'true');
     }, []);
@@ -50,26 +52,10 @@ export function useOnekoState() {
     const toggleOneko = useCallback(() => {
         const newState = !onekoEnabled;
         setOnekoEnabled(newState);
-        localStorage.setItem(ONEKO_ENABLED_KEY, String(newState));
+        safeStorage.setItem(ONEKO_ENABLED_KEY, String(newState));
 
-        // Toggle the actual cat
-        const onekoEl = document.getElementById('oneko');
-        if (newState) {
-            // Enable: load script if not exists
-            if (!onekoEl) {
-                const script = document.createElement('script');
-                script.src = './oneko/oneko.js';
-                script.dataset.cat = './oneko/oneko.gif';
-                document.body.appendChild(script);
-            } else {
-                onekoEl.style.display = 'block';
-            }
-        } else {
-            // Disable: hide the cat
-            if (onekoEl) {
-                onekoEl.style.display = 'none';
-            }
-        }
+        document.documentElement.dataset.oneko=String(newState);
+        setOnekoVisible(newState);
     }, [onekoEnabled]);
 
     return { onekoEnabled, toggleOneko };

@@ -23,42 +23,16 @@ import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import * as z from 'zod';
+import { contactSchema, ContactValues } from '@/lib/contact';
 
 import Chat from '../svgs/Chat';
 
-const contactFormSchema = z.object({
-  name: z.string().min(2, {
-    message: 'Name must be at least 2 characters.',
-  }),
-  email: z.string().email({
-    message: 'Please enter a valid email address.',
-  }),
-  phone: z
-    .string()
-    .min(10, {
-      message: 'Phone number must be at least 10 characters.',
-    })
-    .regex(/^[\+]?[1-9][\d]{0,15}$/, {
-      message: 'Please enter a valid phone number.',
-    }),
-  message: z
-    .string()
-    .min(10, {
-      message: 'Message must be at least 10 characters.',
-    })
-    .max(1000, {
-      message: 'Message must not exceed 1000 characters.',
-    }),
-});
-
-type ContactFormValues = z.infer<typeof contactFormSchema>;
-
 export default function ContactForm() {
+  const [feedback, setFeedback] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+  const form = useForm<ContactValues>({
+    resolver: zodResolver(contactSchema),
     defaultValues: {
       name: '',
       email: '',
@@ -67,8 +41,9 @@ export default function ContactForm() {
     },
   });
 
-  const onSubmit = async (data: ContactFormValues) => {
+  const onSubmit = async (data: ContactValues) => {
     setIsSubmitting(true);
+    setFeedback('');
 
     try {
       const response = await fetch('/api/contact', {
@@ -77,21 +52,25 @@ export default function ContactForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
+        signal: AbortSignal.timeout(15000),
       });
 
       const result = await response.json();
 
       if (response.ok) {
         toast.success('Message sent successfully!');
+        setFeedback('Message sent successfully.');
         form.reset();
       } else {
+        setFeedback(result.error || 'Delivery failed. Please retry or use email.');
+        if (result.fields) for (const key of ['name','email','phone','message'] as const) { if (result.fields[key]?.[0]) form.setError(key, { message: result.fields[key][0] }); }
         toast.error(
           result.error || 'Failed to send message. Please try again.',
         );
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error('Something went wrong. Please try again later.');
+    } catch {
+      setFeedback('Could not confirm delivery. Your message is still here; please retry or use email.');
+      toast.error('Could not confirm delivery. Please retry or use email.');
     } finally {
       setIsSubmitting(false);
     }
@@ -117,7 +96,7 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel>Name *</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your full name" {...field} />
+                      <Input autoComplete="name" maxLength={100} placeholder="Your full name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -128,9 +107,9 @@ export default function ContactForm() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone *</FormLabel>
+                    <FormLabel>Phone (optional)</FormLabel>
                     <FormControl>
-                      <Input placeholder="+91 xxxxx xxxxx" {...field} />
+                      <Input type="tel" autoComplete="tel" placeholder="+91 98765 43210" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -147,7 +126,7 @@ export default function ContactForm() {
                   <FormControl>
                     <Input
                       placeholder="your.email@example.com"
-                      type="email"
+                      type="email" autoComplete="email" maxLength={254}
                       {...field}
                     />
                   </FormControl>
@@ -165,7 +144,7 @@ export default function ContactForm() {
                   <FormControl>
                     <Textarea
                       placeholder="Tell me about your project or just say hello..."
-                      className="min-h-[120px] resize-none"
+                      maxLength={1000} className="min-h-[120px] resize-y"
                       {...field}
                     />
                   </FormControl>
@@ -174,6 +153,8 @@ export default function ContactForm() {
               )}
             />
 
+            <p className="text-sm text-secondary">Your name, email, message, and optional phone number are forwarded to my private Telegram inbox so I can reply. Please avoid sending sensitive information. You can also <a className="underline" href="mailto:kunjdetroja52@gmail.com">email me directly</a>.</p>
+            <p role="status" aria-live="polite" className="text-sm">{feedback}</p>
             <Button type="submit" className="w-fit" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>

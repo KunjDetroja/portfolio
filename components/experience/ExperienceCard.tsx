@@ -10,7 +10,7 @@ import LinkedIn from '../svgs/LinkedIn';
 import Website from '../svgs/Website';
 import X from '../svgs/X';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
-import { useState } from 'react';
+import { useState, useId } from 'react';
 
 interface ExperienceCardProps {
   experience: Experience;
@@ -23,6 +23,7 @@ const parseDescription = (text: string): string => {
 };
 
 export function ExperienceCard({ experience, collapsible = false, defaultCollapsed = false }: ExperienceCardProps) {
+  const detailsId=useId();
   const [isExpanded, setIsExpanded] = useState(!defaultCollapsed);
 
   return (
@@ -52,9 +53,11 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
+                      aria-label={`${experience.company} website`}
+                      rel="noopener noreferrer"
                       href={experience.website}
                       target="_blank"
-                      className="size-4 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+                      className="flex size-11 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
                     >
                       <Website />
                     </Link>
@@ -66,9 +69,11 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
+                      aria-label={`${experience.company} X profile`}
+                      rel="noopener noreferrer"
                       href={experience.x}
                       target="_blank"
-                      className="size-4 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+                      className="flex size-11 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
                     >
                       <X />
                     </Link>
@@ -80,9 +85,11 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
+                      aria-label={`${experience.company} LinkedIn profile`}
+                      rel="noopener noreferrer"
                       href={experience.linkedin}
                       target="_blank"
-                      className="size-4 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+                      className="flex size-11 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
                     >
                       <LinkedIn />
                     </Link>
@@ -94,9 +101,11 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
+                      aria-label={`${experience.company} GitHub profile`}
+                      rel="noopener noreferrer"
                       href={experience.github}
                       target="_blank"
-                      className="size-4 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+                      className="flex size-11 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
                     >
                       <Github />
                     </Link>
@@ -110,10 +119,12 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
                     <button
                       onClick={() => setIsExpanded(!isExpanded)}
                       className={cn(
-                        "size-5 text-neutral-500 hover:text-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-full dark:hover:text-neutral-300 transition-all duration-300",
+                        "flex size-11 items-center justify-center text-neutral-500 hover:text-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-full dark:hover:text-neutral-300 transition-all duration-300",
                         isExpanded ? "rotate-180" : "rotate-0"
                       )}
-                      aria-label={isExpanded ? "Collapse" : "Expand"}
+                      aria-expanded={isExpanded}
+                      aria-controls={detailsId}
+                      aria-label={`${isExpanded ? "Collapse" : "Expand"} ${experience.company} details`}
                     >
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -147,6 +158,9 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
 
       {/* Collapsible Content */}
       <div
+        id={detailsId}
+        inert={collapsible && !isExpanded}
+        aria-hidden={collapsible && !isExpanded}
         className={cn(
           "grid transition-all duration-300 ease-in-out",
           collapsible

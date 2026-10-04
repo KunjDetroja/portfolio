@@ -1,4 +1,3 @@
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { ContentBlock, Project } from '@/types/project';
@@ -6,6 +5,8 @@ import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 
 import Skill from '../common/Skill';
+import { statusLabel } from '@/lib/project-labels';
+const escapeHtml = (text: string) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 import Github from '../svgs/Github';
 import Website from '../svgs/Website';
 
@@ -36,7 +37,7 @@ function renderContentBlock(block: ContentBlock, index: number) {
               : ''
           }`}
           dangerouslySetInnerHTML={{
-            __html: block.text
+            __html: escapeHtml(block.text)
               .replace(/\*\*([^*]+)\*\*/g, '<strong class="text-foreground">$1</strong>')
               .replace(/\*([^*]+)\*/g, '<em>$1</em>')
               .replace(/`([^`]+)`/g, '<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">$1</code>'),
@@ -56,7 +57,7 @@ function renderContentBlock(block: ContentBlock, index: number) {
               key={i}
               className="flex items-start gap-2 text-muted-foreground"
               dangerouslySetInnerHTML={{
-                __html: `<span class="mt-2 block size-1.5 rounded-full bg-primary shrink-0"></span><span>${item
+                __html: `<span class="mt-2 block size-1.5 rounded-full bg-primary shrink-0"></span><span>${escapeHtml(item)
                   .replace(/\*\*([^*]+)\*\*/g, '<strong class="text-foreground">$1</strong>')
                   .replace(/`([^`]+)`/g, '<code class="bg-muted px-1 py-0.5 rounded text-sm font-mono">$1</code>')}</span>`,
               }}
@@ -77,7 +78,7 @@ function renderContentBlock(block: ContentBlock, index: number) {
           key={index}
           className={`mb-4 rounded-lg border p-4 ${variantStyles[block.variant || 'default']}`}
           dangerouslySetInnerHTML={{
-            __html: block.text
+            __html: escapeHtml(block.text)
               .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
               .replace(/`([^`]+)`/g, '<code class="bg-black/10 dark:bg-white/10 px-1 py-0.5 rounded text-sm font-mono">$1</code>'),
           }}
@@ -92,6 +93,7 @@ function renderContentBlock(block: ContentBlock, index: number) {
               src={block.src}
               alt={block.alt}
               fill
+              sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover"
             />
           </div>
@@ -174,13 +176,6 @@ export function ProjectContent({ project }: ProjectContentProps) {
     content,
   } = project;
 
-  const statusVariant =
-    status === 'completed'
-      ? 'default'
-      : status === 'in-progress'
-        ? 'secondary'
-        : 'outline';
-
   return (
     <article className="mx-auto max-w-4xl">
       {/* Hero Section */}
@@ -191,18 +186,12 @@ export function ProjectContent({ project }: ProjectContentProps) {
             alt={title}
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, 896px"
             priority
           />
         </div>
 
         <div className="space-y-4">
-          {/* Project Status and Technologies */}
-          <div className="flex flex-wrap items-center gap-3">
-            <Badge variant={statusVariant} className="text-sm">
-              {status.charAt(0).toUpperCase() + status.slice(1)}
-            </Badge>
-          </div>
-
           <h1 className="text-4xl font-bold leading-tight lg:text-5xl">
             {title}
           </h1>
@@ -215,6 +204,12 @@ export function ProjectContent({ project }: ProjectContentProps) {
             <span className="font-medium">{role}</span>
           </div>
 
+          <dl className="flex flex-wrap gap-x-8 gap-y-3 text-sm">
+            <div><dt className="text-secondary">Status</dt><dd>{statusLabel(status)}</dd></div>
+            {project.timeline && <div><dt className="text-secondary">Timeline</dt><dd>{project.timeline}</dd></div>}
+            {project.team && <div><dt className="text-secondary">Team</dt><dd>{project.team}</dd></div>}
+            {project.platforms && <div><dt className="text-secondary">Platforms</dt><dd>{project.platforms.join(', ')}</dd></div>}
+          </dl>
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-3">
             {live && (
@@ -252,7 +247,7 @@ export function ProjectContent({ project }: ProjectContentProps) {
       {/* Technology Stack */}
       <div className="mb-8">
         <div className="rounded-lg border bg-muted/20 p-4">
-          <h3 className="mb-3 text-lg font-semibold">Technology Stack</h3>
+          <h2 className="mb-3 text-lg font-semibold">Technology Stack</h2>
           <div className="flex flex-wrap gap-2">
             {technologies.map((technology, index) => (
               <Skill
@@ -268,7 +263,7 @@ export function ProjectContent({ project }: ProjectContentProps) {
       </div>
 
       {/* Challenges and Learnings */}
-      {(challenges?.length || learnings?.length) && (
+      {Boolean(challenges?.length || learnings?.length) && (
         <div className="mb-8 grid gap-6 md:grid-cols-2">
           {challenges && challenges.length > 0 && (
             <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-950/20">
@@ -310,12 +305,14 @@ export function ProjectContent({ project }: ProjectContentProps) {
         </div>
       )}
 
+      {project.gallery && <section className="my-8 space-y-6" aria-labelledby="gallery-heading"><h2 id="gallery-heading" className="text-2xl font-semibold">Product walkthrough</h2><p className="text-secondary">Actual development screenshots. Select an image to view the full capture in a new tab.</p><div className="grid gap-6 sm:grid-cols-2">{project.gallery.map(item => <figure key={item.src}><a href={item.src} target="_blank" rel="noopener noreferrer" aria-label={`${item.alt}: view full screenshot in new tab`}><Image src={item.src} alt={item.alt} width={item.width} height={item.height} sizes="(max-width: 640px) 100vw, 440px" className="max-h-80 w-full rounded-lg border object-cover object-top" /></a><figcaption className="mt-2 text-sm text-secondary">{item.caption}</figcaption></figure>)}</div></section>}
       {/* Content */}
       {content && content.length > 0 && (
         <div className="mt-8">
           {content.map((block, index) => renderContentBlock(block, index))}
         </div>
       )}
+      <section className="mt-12 border-t pt-8"><h2 className="text-xl font-semibold">Have a project or opportunity in mind?</h2><p className="mt-2 text-secondary">Let&apos;s discuss employment opportunities or freelance work.</p><Button asChild className="mt-4"><Link href="/contact">Contact Kunj</Link></Button></section>
     </article>
   );
 }

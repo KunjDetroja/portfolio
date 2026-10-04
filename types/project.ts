@@ -21,16 +21,20 @@ export interface Project {
   live?: string;
   details: boolean;
   projectDetailsPageSlug: string;
-  isWorking: boolean;
+  isWorking?: boolean; // Legacy entries only; display status instead.
+  ownership?: "personal" | "company" | "freelance";
+  platforms?: string[];
+  contribution?: string;
+  gallery?: { src: string; alt: string; caption: string; width: number; height: number }[];
   // Case study fields
   timeline?: string;
   role?: string;
   team?: string;
-  status?: 'completed' | 'in-progress' | 'archived';
+  status: 'completed' | 'in-progress' | 'archived';
   featured?: boolean;
   challenges?: string[];
   learnings?: string[];
-  isPublished?: boolean;
+  isPublished: boolean;
   content?: ContentBlock[];
 }
 

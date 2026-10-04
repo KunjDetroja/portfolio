@@ -1,111 +1,48 @@
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 import Container from '../common/Container';
-import Skill from '../common/Skill';
 import CV from '../svgs/CV';
 import Chat from '../svgs/Chat';
+import ArrowRight from '../svgs/ArrowRight';
 import { Button } from '../ui/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 import { navbarConfig } from '@/config/Navbar';
-import React from 'react';
-import { skillTags, socialLinks } from '@/config/Hero';
-import AnimatedSection from '../common/AnimatedSection';
+import { socialLinks } from '@/config/Hero';
 
 export default function Hero() {
-    return (
-        <Container className="mx-auto max-w-5xl">
-            {/* Image */}
-            <AnimatedSection delay={0}>
-                <Image
-                    src={navbarConfig.logo.src}
-                    alt="hero"
-                    width={500}
-                    height={500}
-                    className="size-24 rounded-full object-cover"
-                />
-            </AnimatedSection>
-
-            {/* Text Area */}
-            <AnimatedSection delay={100}>
-                <div className="mt-8 flex flex-col gap-2">
-                    <h1 className="text-4xl font-bold">
-                        Hi, I&apos;m Kunj — <span className="text-secondary">A Full Stack Developer.</span>
-                    </h1>
-
-                    <p className="mt-4 text-base md:text-lg text-neutral-500 leading-[38px]">
-                        I build scalable web apps using{' '}
-                        {skillTags.map((skill, index) => {
-                            const isLast = index === skillTags.length - 1;
-                            const isFirst = index === 0;
-                            return (
-                                <React.Fragment key={skill.name}>
-                                    {!isFirst && !isLast && <> , </>}
-                                    {isLast && <> and </>}
-                                    <Skill
-                                        name={skill.name}
-                                        href={skill.href}
-                                    >
-                                        {skill.icon}
-                                    </Skill>
-                                </React.Fragment>
-                            )
-                        })}
-                        {' '}. With a focus on{' '}
-                        <span className="font-semibold text-foreground">fintech</span>,{' '}
-                        <span className="font-semibold text-foreground">HRMS</span>, and{' '}
-                        <span className="font-semibold text-foreground">AI</span>
-                        {' '}domains, driven by clean code and great UX.
-                    </p>
-                </div>
-            </AnimatedSection>
-
-            {/* Buttons */}
-            <AnimatedSection delay={200}>
-                <div className="mt-8 flex gap-4">
-                    <Button
-                        variant="outline"
-                        className="inset-shadow-indigo-500"
-                        asChild
-                    >
-                        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                            <CV />
-                            Download CV
-                        </a>
-                    </Button>
-                    <Button
-                        variant="default"
-                        className="inset-shadow-indigo-500"
-                    >
-                        <Chat />
-                        <Link href="/contact">Get in touch</Link>
-                    </Button>
-                </div>
-            </AnimatedSection>
-
-            {/* Social Links */}
-            <AnimatedSection delay={300}>
-                <div className="mt-8 flex gap-2">
-                    {socialLinks.map((link) => (
-                        <Tooltip delayDuration={0} key={link.name}>
-                            <TooltipTrigger asChild>
-                                <Link
-                                    href={link.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-secondary flex items-center gap-2"
-                                >
-                                    <span className="size-6">
-                                        {link.icon}
-                                    </span>
-                                </Link>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>{link.name}</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    ))}
-                </div>
-            </AnimatedSection>
-        </Container>
-    );
+  return (
+    <Container>
+      <section aria-labelledby="intro-heading">
+        <div className="flex items-center gap-4">
+          <Image src={navbarConfig.logo.src} alt="Kunj Detroja" width={80} height={80}
+            sizes="(min-width: 640px) 80px, 64px"
+            className="size-16 shrink-0 rounded-full object-cover sm:size-20" priority />
+          <div className="min-w-0">
+            <h1 id="intro-heading" className="text-3xl font-bold tracking-tight sm:text-4xl">Kunj Detroja</h1>
+            <p className="mt-1 text-lg text-secondary">Full Stack Developer</p>
+          </div>
+        </div>
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-secondary sm:text-lg">
+          I build web and mobile products with React, Next.js, Node.js, and React Native.
+          My work connects user interfaces with APIs, databases, payments, and real-time
+          workflows across booking platforms, commerce, and internal tools.
+        </p>
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <Button asChild><a href="#selected-work">View selected work <ArrowRight className="size-4" /></a></Button>
+          <Button variant="outline" asChild><a href="/resume.pdf" target="_blank" rel="noopener noreferrer"><CV />Download CV</a></Button>
+          <Button variant="ghost" asChild><Link href="/contact"><Chat />Get in touch</Link></Button>
+        </div>
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+          <p className="text-sm text-secondary">Employment opportunities and freelance projects.</p>
+          <div className="flex gap-1" aria-label="Profile links">
+            {socialLinks.map(link => (
+              <a key={link.name} href={link.href} aria-label={link.name} target="_blank" rel="noopener noreferrer"
+                className="inline-flex size-10 items-center justify-center rounded-md text-secondary transition-colors hover:bg-muted/30 hover:text-foreground">
+                <span aria-hidden="true" className="size-5">{link.icon}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </Container>
+  );
 }

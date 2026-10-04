@@ -48,11 +48,13 @@ export async function generateMetadata({
     metadataBase: new URL(siteConfig.url),
     title: `${title} - Project`,
     description,
+    alternates: { canonical: project.projectDetailsPageSlug },
     openGraph: {
       title: `${title} - Project`,
       description,
       images: [image],
       type: 'article',
+      url: project.projectDetailsPageSlug,
     },
     twitter: {
       card: 'summary_large_image',

@@ -12,6 +12,8 @@ import { CommandItemData } from '@/types/command-palette';
 import { CommandPaletteItem } from './CommandPaletteItem';
 import { KeyboardShortcutsDialog } from './KeyboardShortcutsDialog';
 import { useRecentCommands, useOnekoState } from '@/hooks/useCommandPaletteState';
+import { getPublishedProjects } from '@/lib/projects';
+import { toast } from 'sonner';
 import { useThemeToggle } from '../theme/ThemeSwitch';
 
 export function CommandPalette() {
@@ -27,7 +29,6 @@ export function CommandPalette() {
     // Global keyboard shortcuts
     const shortcuts = useMemo(() => [
         // Command palette shortcuts (always work)
-        { key: 'k', meta: true, action: () => setOpen(!open), allowInInput: true },
         { key: '/', action: () => setOpen(true) },
         { key: '?', action: () => setShowShortcutsHelp(true) },
 
@@ -45,13 +46,15 @@ export function CommandPalette() {
         { key: 'g', alt: true, ctrl: true, action: () => { window.open('https://github.com/KunjDetroja', '_blank'); addToRecent('profile-github'); } },
         { key: 'l', alt: true, ctrl: true, action: () => { window.open('https://linkedin.com/in/kunjdetroja', '_blank'); addToRecent('profile-linkedin'); } },
         { key: 'e', alt: true, ctrl: true, action: () => { window.open('mailto:kunjdetroja52@gmail.com', '_blank'); addToRecent('profile-email'); } },
-    ], [open, setOpen, router, setCrazyLightTheme, setSystemTheme, setCrazyDarkTheme, addToRecent]);
+    ], [setOpen, router, setCrazyLightTheme, setSystemTheme, setCrazyDarkTheme, addToRecent]);
 
+    useKeyboardShortcuts([{ key: 'k', meta: true, action: () => setOpen(!open), allowInInput: true }]);
     useKeyboardShortcuts(shortcuts, { disabled: open });
 
     // Actions
     const copyEmail = useCallback(async () => {
         await navigator.clipboard.writeText('kunjdetroja52@gmail.com');
+        toast.success('Email copied.');
     }, []);
 
     const sharePortfolio = useCallback(async () => {
@@ -63,6 +66,7 @@ export function CommandPalette() {
             });
         } else {
             await navigator.clipboard.writeText(window.location.origin);
+            toast.success('Portfolio link copied.');
         }
     }, []);
 
@@ -83,6 +87,8 @@ export function CommandPalette() {
         { id: 'nav-experience', label: 'Go to Work Experience', description: 'View work experience', icon: <Briefcase className="size-4.5!" />, shortcutKey: 'goWorkExperience', action: () => router.push('/work-experience'), group: 'navigation' },
         { id: 'nav-projects', label: 'Go to Projects', description: 'Browse all projects', icon: <FolderOpen className="size-4.5!" />, shortcutKey: 'goProjects', action: () => router.push('/projects'), group: 'navigation' },
 
+        { id: 'nav-contact', label: 'Contact Kunj', description: 'Employment and freelance opportunities', icon: <Mail className="size-4" />, action: () => router.push('/contact'), group: 'navigation' },
+        ...getPublishedProjects().map(project => ({ id: 'project-' + project.projectDetailsPageSlug, label: project.title, description: project.description, keywords: project.technologies.map(t => t.name), icon: <FolderOpen className="size-4" />, action: () => router.push(project.projectDetailsPageSlug), group: 'navigation' as const })),
         // Settings
         { id: 'settings-theme-light', label: 'Switch to Light Theme', description: 'Enable light mode', icon: <Sun className="size-4.5!" />, shortcutKey: 'themeLight', action: () => setCrazyLightTheme({ variant: 'circle', start: getDialogCenterCoords(), blur: true, gifUrl: '' }), group: 'settings' },
         { id: 'settings-theme-dark', label: 'Switch to Dark Theme', description: 'Enable dark mode', icon: <Moon className="size-4.5!" />, shortcutKey: 'themeDark', action: () => setCrazyDarkTheme({ variant: 'circle', start: getDialogCenterCoords(), blur: true, gifUrl: '' }), group: 'settings' },
@@ -103,7 +109,7 @@ export function CommandPalette() {
 
     const runCommand = useCallback((command: CommandItemData) => {
         setOpen(false);
-        command.action();
+        Promise.resolve().then(() => command.action()).catch(error => { if (!(error instanceof DOMException && error.name === 'AbortError')) toast.error('This action could not complete. Please try again.'); });
         setTimeout(() => addToRecent(command.id), 300);
     }, [addToRecent, setOpen]);
 
@@ -119,7 +125,7 @@ export function CommandPalette() {
 
     return (
         <>
-            <CommandDialog open={open} onOpenChange={setOpen} showCloseButton={false}>
+            <CommandDialog open={open} onOpenChange={setOpen} showCloseButton={true}>
                 <CommandInput placeholder="Type a command or search..." />
                 <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
