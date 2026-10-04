@@ -6,10 +6,12 @@ import About from '@/components/landing/About';
 import Education from '@/components/landing/Education';
 import Life from '@/components/landing/Life';
 import AnimatedSection from '@/components/common/AnimatedSection';
+import HomeStructuredData from '@/components/seo/HomeStructuredData';
 
 export default function Page() {
   return (
     <Container className="min-h-screen py-12">
+      <HomeStructuredData />
       <AnimatedSection><Hero /></AnimatedSection>
       <AnimatedSection><Projects /></AnimatedSection>
       <AnimatedSection><Experience /></AnimatedSection>

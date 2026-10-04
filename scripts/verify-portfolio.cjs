@@ -31,8 +31,8 @@ async function run() {
  for(const [name,slug] of [['Game Admin Portal','game-admin-portal'],['Getways','getways']]) {
   const entry=entries(current).get(name);
   assert.ok(entry.includes(`image: "/project/${slug}-ai.webp"`),name+' must use its new AI cover');
-  const withOriginalCover=entry.replace(`image: "/project/${slug}-ai.webp"`,`image: "/project/${slug}.png"`);
-  assert.equal(withOriginalCover,entries(before).get(name),name+' case-study content must remain unchanged');
+  const normalizeCover=source=>source.replace(`image: "/project/${slug}-ai.webp"`,`image: "/project/${slug}.png"`);
+  assert.equal(normalizeCover(entry),normalizeCover(entries(before).get(name)),name+' case-study content must remain unchanged');
  }
  const {projects}=load('config/Projects.tsx');
  const {getPublishedProjects,getCuratedProjects,getProjectNavigation,getProjectBySlug}=load('lib/projects.ts');

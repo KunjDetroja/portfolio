@@ -6,7 +6,7 @@ export const siteConfig = {
   title: 'Kunj Detroja Portfolio',
   description:
     'Kunj Detroja is a Full Stack Developer building web, backend, and mobile products with React, Next.js, Node.js, and React Native.',
-  url: process.env.NEXT_PUBLIC_URL || 'https://kunj.me',
+  url: new URL(process.env.NEXT_PUBLIC_URL?.trim() || 'https://kunj.me').origin,
   ogImage: '/meta/opengraph-image.png',
   // Replace with your actual Google Search Console verification code
   googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
@@ -120,7 +120,7 @@ export function generateMetadata(pathname: string) {
     }),
     openGraph: {
       type: 'website',
-      url: `${siteConfig.url}${pathname}`,
+      url: new URL(pathname, siteConfig.url).href,
       title: pageMeta.title,
       description: pageMeta.description,
       siteName: siteConfig.title,
@@ -152,7 +152,7 @@ export function generateMetadata(pathname: string) {
       },
     },
     alternates: {
-      canonical: `${siteConfig.url}${pathname}`,
+      canonical: new URL(pathname, siteConfig.url).href,
     },
   };
 }

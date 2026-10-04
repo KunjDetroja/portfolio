@@ -43,14 +43,15 @@ export async function generateMetadata({
   }
 
   const { title, description, image } = project;
+  const pageTitle = `${title} - Case Study | ${siteConfig.name}`;
 
   return {
     metadataBase: new URL(siteConfig.url),
-    title: `${title} - Project`,
+    title: pageTitle,
     description,
     alternates: { canonical: project.projectDetailsPageSlug },
     openGraph: {
-      title: `${title} - Project`,
+      title: pageTitle,
       description,
       images: [image],
       type: 'article',
@@ -58,7 +59,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${title} - Project`,
+      title: pageTitle,
       description,
       images: [image],
     },
