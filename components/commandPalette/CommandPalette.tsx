@@ -44,7 +44,7 @@ export function CommandPalette() {
 
         // Profile shortcuts (Alt + Ctrl/Cmd + key)
         { key: 'g', alt: true, ctrl: true, action: () => { window.open('https://github.com/KunjDetroja', '_blank'); addToRecent('profile-github'); } },
-        { key: 'l', alt: true, ctrl: true, action: () => { window.open('https://linkedin.com/in/kunjdetroja', '_blank'); addToRecent('profile-linkedin'); } },
+        { key: 'l', alt: true, ctrl: true, action: () => { window.open('https://www.linkedin.com/in/kunjdetroja52/', '_blank'); addToRecent('profile-linkedin'); } },
         { key: 'e', alt: true, ctrl: true, action: () => { window.open('mailto:kunjdetroja52@gmail.com', '_blank'); addToRecent('profile-email'); } },
     ], [setOpen, router, setCrazyLightTheme, setSystemTheme, setCrazyDarkTheme, addToRecent]);
 
@@ -103,7 +103,7 @@ export function CommandPalette() {
 
         // Profiles
         { id: 'profile-github', label: 'Open GitHub', description: 'View GitHub profile', icon: <Github className="size-4.5!" />, shortcutKey: 'openGithub', action: () => window.open('https://github.com/KunjDetroja', '_blank'), group: 'profiles' },
-        { id: 'profile-linkedin', label: 'Open LinkedIn', description: 'View LinkedIn profile', icon: <Linkedin className="size-4.5!" />, shortcutKey: 'openLinkedin', action: () => window.open('https://linkedin.com/in/kunjdetroja', '_blank'), group: 'profiles' },
+        { id: 'profile-linkedin', label: 'Open LinkedIn', description: 'View LinkedIn profile', icon: <Linkedin className="size-4.5!" />, shortcutKey: 'openLinkedin', action: () => window.open('https://www.linkedin.com/in/kunjdetroja52/', '_blank'), group: 'profiles' },
         { id: 'profile-email', label: 'Send Email', description: 'Open email client', icon: <Mail className="size-4.5!" />, shortcutKey: 'openEmail', action: () => window.open('mailto:kunjdetroja52@gmail.com', '_blank'), group: 'profiles' },
     ], [router, setCrazyLightTheme, setCrazyDarkTheme, setSystemTheme, onekoEnabled, toggleOneko, copyEmail, sharePortfolio]);
 

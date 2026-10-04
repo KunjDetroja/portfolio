@@ -14,7 +14,7 @@ export const siteConfig = {
     name: 'Kunj Detroja',
     twitter: '@kunjdetroja',
     github: 'KunjDetroja',
-    linkedin: 'kunjdetroja',
+    linkedin: 'kunjdetroja52',
     email: 'kunjdetroja52@gmail.com',
   },
   keywords: [

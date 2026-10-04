@@ -37,10 +37,10 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
             alt={experience.company}
             width={100}
             height={100}
-            className="size-12 rounded-md"
+            className="size-12 shrink-0 rounded-md"
           />
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2">
+          <div className="flex min-w-0 flex-col">
+            <div className="flex flex-wrap items-center gap-1">
               <h3
                 className={cn(
                   'text-lg font-bold',
@@ -57,7 +57,7 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
                       rel="noopener noreferrer"
                       href={experience.website}
                       target="_blank"
-                      className="flex size-11 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+                      className="flex size-11 shrink-0 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors sm:size-8 sm:p-1.5"
                     >
                       <Website />
                     </Link>
@@ -73,7 +73,7 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
                       rel="noopener noreferrer"
                       href={experience.x}
                       target="_blank"
-                      className="flex size-11 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+                      className="flex size-11 shrink-0 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors sm:size-8 sm:p-1.5"
                     >
                       <X />
                     </Link>
@@ -89,7 +89,7 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
                       rel="noopener noreferrer"
                       href={experience.linkedin}
                       target="_blank"
-                      className="flex size-11 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+                      className="flex size-11 shrink-0 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors sm:size-8 sm:p-1.5"
                     >
                       <LinkedIn />
                     </Link>
@@ -105,7 +105,7 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
                       rel="noopener noreferrer"
                       href={experience.github}
                       target="_blank"
-                      className="flex size-11 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+                      className="flex size-11 shrink-0 items-center justify-center p-3 text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors sm:size-8 sm:p-1.5"
                     >
                       <Github />
                     </Link>
@@ -119,7 +119,7 @@ export function ExperienceCard({ experience, collapsible = false, defaultCollaps
                     <button
                       onClick={() => setIsExpanded(!isExpanded)}
                       className={cn(
-                        "flex size-11 items-center justify-center text-neutral-500 hover:text-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-full dark:hover:text-neutral-300 transition-all duration-300",
+                        "flex size-11 shrink-0 items-center justify-center text-neutral-500 hover:text-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-full dark:hover:text-neutral-300 transition-all duration-300 sm:size-8",
                         isExpanded ? "rotate-180" : "rotate-0"
                       )}
                       aria-expanded={isExpanded}

@@ -16,7 +16,7 @@ export const socialLinks = [
     // },
     {
         name: 'LinkedIn',
-        href: 'https://linkedin.com/in/kunjdetroja',
+        href: 'https://www.linkedin.com/in/kunjdetroja52/',
         icon: <LinkedIn />,
     },
     {
