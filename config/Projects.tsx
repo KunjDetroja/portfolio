@@ -40,14 +40,20 @@ export const projects: Project[] = [
     "isPublished": true,
     "contribution": "Contributed to buyer, seller and admin interfaces, backend APIs and payment integrations.",
     "content": [
+      { "type": "heading", "level": 2, "text": "About the project" },
+      { "type": "paragraph", "text": "Total Liquor is a B2B marketplace connecting licensed liquor stores with restaurants, bars and hospitality businesses. Buyers can browse products and place orders, while sellers manage their catalog and fulfillment. An administrator workspace supports day-to-day platform operations." },
       {
         "type": "heading",
         "level": 2,
         "text": "My contribution"
       },
       {
-        "type": "paragraph",
-        "text": "Contributed to buyer, seller and admin interfaces, backend APIs and payment integrations."
+        "type": "list",
+        "items": [
+          "Developed React interfaces for buyer, seller and administrator workflows.",
+          "Built Express APIs and PostgreSQL-backed functionality for ordering and catalog operations.",
+          "Contributed to checkout, payment integrations and order-status updates."
+        ]
       }
     ]
   },
@@ -101,14 +107,20 @@ export const projects: Project[] = [
     "isPublished": true,
     "contribution": "Contributed to web dashboards, backend APIs and mobile application workflows.",
     "content": [
+      { "type": "heading", "level": 2, "text": "About the project" },
+      { "type": "paragraph", "text": "AOG is a rewards and gaming platform available through web and mobile applications. It brings together game access, account activity and rewards-related features, with separate dashboards for users and platform operators." },
       {
         "type": "heading",
         "level": 2,
         "text": "My contribution"
       },
       {
-        "type": "paragraph",
-        "text": "Contributed to web dashboards, backend APIs and mobile application workflows."
+        "type": "list",
+        "items": [
+          "Developed React dashboards and Express APIs for user and operator workflows.",
+          "Contributed to MySQL-backed account and rewards functionality.",
+          "Built React Native and Expo workflows, including navigation and in-app game experiences."
+        ]
       }
     ]
   },
@@ -152,14 +164,20 @@ export const projects: Project[] = [
     "isPublished": true,
     "contribution": "Contributed to administrative interfaces, backend services and reporting features.",
     "content": [
+      { "type": "heading", "level": 2, "text": "About the project" },
+      { "type": "paragraph", "text": "Game Admin Portal gives gaming operations teams a central workspace for managing users, reviewing account activity and accessing operational reports. It brings administrative tasks and reporting together so teams can oversee the platform from one interface." },
       {
         "type": "heading",
         "level": 2,
         "text": "My contribution"
       },
       {
-        "type": "paragraph",
-        "text": "Contributed to administrative interfaces, backend services and reporting features."
+        "type": "list",
+        "items": [
+          "Developed React administrative screens for user management and operational tasks.",
+          "Contributed to backend services using Node.js, Express and Parse Server.",
+          "Built reporting interfaces and connected dashboards to backend data."
+        ]
       }
     ]
   },
@@ -198,14 +216,20 @@ export const projects: Project[] = [
     "isPublished": true,
     "contribution": "Contributed to payment integrations, transaction interfaces and administrative workflows.",
     "content": [
+      { "type": "heading", "level": 2, "text": "About the project" },
+      { "type": "paragraph", "text": "Getways is a payment management platform with workspaces for users and administrators. Users can access payment-related account features and transaction history, while administrators review transactions and manage operational tasks through a central dashboard." },
       {
         "type": "heading",
         "level": 2,
         "text": "My contribution"
       },
       {
-        "type": "paragraph",
-        "text": "Contributed to payment integrations, transaction interfaces and administrative workflows."
+        "type": "list",
+        "items": [
+          "Developed React interfaces for user transactions and administrative workflows.",
+          "Contributed to payment-provider integrations and backend services using Express and Parse Server.",
+          "Connected transaction views and reporting screens to backend APIs."
+        ]
       }
     ]
   },
@@ -249,14 +273,20 @@ export const projects: Project[] = [
     "isPublished": true,
     "contribution": "Contributed to employee interfaces, backend APIs, attendance and payroll features.",
     "content": [
+      { "type": "heading", "level": 2, "text": "About the project" },
+      { "type": "paragraph", "text": "HRMS is a human resource management platform that brings employee records, attendance, leave and payroll workflows into one workspace. It supports employees and HR teams with tools for managing routine requests, maintaining organization information and reviewing workforce activity." },
       {
         "type": "heading",
         "level": 2,
         "text": "My contribution"
       },
       {
-        "type": "paragraph",
-        "text": "Contributed to employee interfaces, backend APIs, attendance and payroll features."
+        "type": "list",
+        "items": [
+          "Developed React interfaces for employee records and organization management.",
+          "Built Express APIs and MongoDB-backed functionality for HR workflows.",
+          "Contributed to attendance, leave and payroll features, along with document integrations."
+        ]
       }
     ]
   },
@@ -300,14 +330,20 @@ export const projects: Project[] = [
     "isPublished": true,
     "contribution": "Contributed to opportunity discovery, proposal workflows, backend APIs and the React interface.",
     "content": [
+      { "type": "heading", "level": 2, "text": "About the project" },
+      { "type": "paragraph", "text": "Winbid is a procurement platform that helps teams discover opportunities and prepare proposals. It combines opportunity information, requirement documents and AI-assisted drafting in one workspace, where users can review proposal sections and export a formatted document." },
       {
         "type": "heading",
         "level": 2,
         "text": "My contribution"
       },
       {
-        "type": "paragraph",
-        "text": "Contributed to opportunity discovery, proposal workflows, backend APIs and the React interface."
+        "type": "list",
+        "items": [
+          "Developed React interfaces and backend APIs for procurement discovery and proposal preparation.",
+          "Contributed to document processing and AI-assisted proposal generation.",
+          "Implemented progress updates, cancellation and document-export features."
+        ]
       }
     ]
   },
