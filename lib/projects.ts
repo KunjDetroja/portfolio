@@ -1,12 +1,10 @@
 import { projects } from '@/config/Projects';
 import { Project } from '@/types/project';
 const extractSlug = (path: string) => path.replace('/projects/', '');
-const ownershipOrder = { personal: 0, freelance: 1, company: 2 };
 
+// Keep display order in the projects configuration array.
 export const getPublishedProjects = (): Project[] =>
-  projects
-    .filter(project => project.isPublished === true && project.details)
-    .sort((a, b) => ownershipOrder[a.ownership ?? 'company'] - ownershipOrder[b.ownership ?? 'company']);
+  projects.filter(project => project.isPublished === true && project.details);
 
 export const getProjectBySlug = async (slug: string): Promise<Project | undefined> =>
   getPublishedProjects().find(project => extractSlug(project.projectDetailsPageSlug) === slug);
@@ -16,10 +14,8 @@ export const getProjectSlugs = (): string[] =>
 
 export const getAllProjects = async (): Promise<Project[]> => getPublishedProjects();
 
-// Deliberate homepage selection, independent of preserved legacy flags.
-const featuredSlugs = ['rentra', 'cinevault', 'organization-management-system', 'dineflow'];
-export const getCuratedProjects = (): Project[] => featuredSlugs.flatMap(slug =>
-  getPublishedProjects().filter(project => extractSlug(project.projectDetailsPageSlug) === slug));
+export const getCuratedProjects = (): Project[] =>
+  getPublishedProjects().filter(project => project.ownership === 'personal').slice(0, 4);
 export const getFeaturedProjects = async (limit?: number): Promise<Project[]> =>
   limit ? getCuratedProjects().slice(0, limit) : getCuratedProjects();
 
